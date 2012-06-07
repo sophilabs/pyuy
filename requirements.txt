@@ -1,0 +1,30 @@
+--extra-index-url=http://dist.pinaxproject.com/dev/
+--extra-index-url=http://dist.pinaxproject.com/alpha/
+--extra-index-url=http://dist.pinaxproject.com/fresh-start/
+
+Django==1.4
+PIL==1.1.7
+Pinax==0.9a2
+argparse==1.2.1
+distribute==0.6.24
+django-appconf==0.5
+django-compressor==1.2a1
+django-debug-toolbar==0.9.1
+django-email-confirmation==0.2
+django-forms-bootstrap==2.0.3.post1
+django-mailer==0.2a1
+django-markitup==1.0.0
+django-openid==0.3a1
+django-timezones==0.2
+-e git://github.com/pinax/django-user-accounts.git@3676d2c7ea0e9a5c3f8510ac8e6f8d58175e6b5f#egg=django_user_accounts-dev
+easy-thumbnails==1.0-alpha-21
+icalendar==3.0.1b2
+metron==0.1
+pinax-theme-bootstrap==2.0.3
+-e git://github.com/pinax/pinax-theme-bootstrap-account.git@70c0be0279d61bd2d0f949698f94b8f938918277#egg=pinax_theme_bootstrap_account-dev
+pinax-utils==1.0b1.dev3
+psycopg2==2.4.5
+python-openid==2.2.5
+pytz==2011n
+-e git+git://github.com/sophilabs/symposion.git#egg=symposion
+wsgiref==0.1.2
