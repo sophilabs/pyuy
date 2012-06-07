@@ -5,10 +5,12 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pyuy.views.home', name='home'),
-    # url(r'^pyuy/', include('pyuy.foo.urls')),
 
+    url(r"^speaker/", include("symposion.speakers.urls")),
+    url(r"^proposal/", include("symposion.proposals.urls")),
+    url(r"^review/", include("symposion.review.urls")),
+    url(r"^sponsors/", include("symposion.sponsors_pro.urls")),
+    url(r"^schedule/", include("symposion.schedule.urls")),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
