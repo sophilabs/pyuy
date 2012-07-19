@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-
+    url("", include("pycon.urls")),
     url(r"^speaker/", include("symposion.speakers.urls")),
     url(r"^proposal/", include("symposion.proposals.urls")),
     url(r"^review/", include("symposion.review.urls")),

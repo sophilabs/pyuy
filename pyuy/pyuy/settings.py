@@ -1,4 +1,9 @@
-# Django settings for pyuy project.
+import os
+
+PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+
+def rel(*x):
+    return os.path.join(PROJECT_ROOT, *x)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -15,7 +20,7 @@ DATABASES = {
         'NAME': 'pyuy',                      # Or path to database file if using sqlite3.
         'USER': 'sl',                      # Not used with sqlite3.
         'PASSWORD': 'sl',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -55,29 +60,15 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
 
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
+STATIC_ROOT = rel('collectedstatic')
 STATIC_URL = '/static/'
-
-# Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    rel('static'),
 )
-
-# List of finder classes that know how to find static files in
-# various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -87,7 +78,6 @@ SECRET_KEY = 'zq($m9-l453vuha7wn(0p_xq38xb&amp;6a15^=3ix--#wu(zq)_u5'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,9 +96,7 @@ ROOT_URLCONF = 'pyuy.urls'
 WSGI_APPLICATION = 'pyuy.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+
 )
 
 INSTALLED_APPS = (
@@ -120,7 +108,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    'symposion',
+    'account',
+
+    'symposion.conference',
+    'symposion.speakers',
+    'symposion.proposals',
+    'symposion.review',
+    'symposion.sponsors_pro',
+    'symposion.schedule',
+    'bootstrap',
+    'pycon',
 
 )
 

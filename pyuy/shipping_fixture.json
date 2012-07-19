@@ -1,0 +1,1473 @@
+[
+    {
+        "pk": 31, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "account", 
+            "name": "account", 
+            "app_label": "account"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "benefit", 
+            "name": "benefit", 
+            "app_label": "sponsors_pro"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "benefitlevel", 
+            "name": "benefit level", 
+            "app_label": "sponsors_pro"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "comment", 
+            "name": "comment", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "contenttype", 
+            "name": "content type", 
+            "app_label": "contenttypes"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "emailaddress", 
+            "name": "email address", 
+            "app_label": "account"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "emailconfirmation", 
+            "name": "email confirmation", 
+            "app_label": "account"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "group", 
+            "name": "group", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "latestvote", 
+            "name": "latest vote", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "logentry", 
+            "name": "log entry", 
+            "app_label": "admin"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "permission", 
+            "name": "permission", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "plenary", 
+            "name": "plenary", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "presentation", 
+            "name": "presentation", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "presentationcategory", 
+            "name": "presentation category", 
+            "app_label": "conference"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "presentationkind", 
+            "name": "presentation kind", 
+            "app_label": "conference"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "proposal", 
+            "name": "proposal", 
+            "app_label": "proposals"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "proposalmessage", 
+            "name": "proposal message", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "proposalresult", 
+            "name": "proposal result", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "recess", 
+            "name": "recess", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "review", 
+            "name": "review", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "reviewassignment", 
+            "name": "review assignment", 
+            "app_label": "review"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "sessions"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sessionrole", 
+            "name": "session role", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "signupcode", 
+            "name": "signup code", 
+            "app_label": "account"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "signupcoderesult", 
+            "name": "signup code result", 
+            "app_label": "account"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "site", 
+            "name": "site", 
+            "app_label": "sites"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "slot", 
+            "name": "slot", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "speaker", 
+            "name": "speaker", 
+            "app_label": "speakers"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sponsor", 
+            "name": "sponsor", 
+            "app_label": "sponsors_pro"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sponsorbenefit", 
+            "name": "sponsor benefit", 
+            "app_label": "sponsors_pro"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "sponsorlevel", 
+            "name": "sponsor level", 
+            "app_label": "sponsors_pro"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "track", 
+            "name": "track", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "userbookmark", 
+            "name": "user bookmark", 
+            "app_label": "schedule"
+        }
+    }, 
+    {
+        "pk": "fa85fb7819048e8b02ab81ca721799b6", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2012-07-31T14:31:54.871Z", 
+            "session_data": "YWIzMzUwMWVkYmNjYTZkMzAwNDRmNjYzNmVjOTMzNTVkNjRiNjQyZjqAAn1xAVUKdGVzdGNvb2tp\nZVUGd29ya2Vkcy4=\n"
+        }
+    }, 
+    {
+        "pk": "3c8ead3175321e414a9b1d94062acbb6", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2012-07-31T14:53:43.510Z", 
+            "session_data": "MTE2MTk4ZTY1YTU2N2NkNDVkZWY1ZDZjMWM5ZGFiZjc1ZWY2NDAwOTqAAn1xAS4=\n"
+        }
+    }, 
+    {
+        "pk": "bddf093c443936964d5ac456a0a26726", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2012-07-31T14:59:31.056Z", 
+            "session_data": "YWIzMzUwMWVkYmNjYTZkMzAwNDRmNjYzNmVjOTMzNTVkNjRiNjQyZjqAAn1xAVUKdGVzdGNvb2tp\nZVUGd29ya2Vkcy4=\n"
+        }
+    }, 
+    {
+        "pk": "4f28c1365890118f4d3992a0828471c8", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2012-07-31T15:07:31.272Z", 
+            "session_data": "OWUwMTIzYzEwYjY0Zjc1NzllMzFjY2NhM2QyYzU3YTZmYWU0NjUzZTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQRLAXUu\n"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "example.com", 
+            "name": "example.com"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sponsors_pro.sponsorlevel", 
+        "fields": {
+            "description": "", 
+            "cost": 1000, 
+            "name": "Gold", 
+            "order": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "sponsors_pro.sponsorlevel", 
+        "fields": {
+            "description": "", 
+            "cost": 0, 
+            "name": "Silver", 
+            "order": 2
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_account", 
+            "name": "Can add account", 
+            "content_type": 31
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_account", 
+            "name": "Can change account", 
+            "content_type": 31
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_account", 
+            "name": "Can delete account", 
+            "content_type": 31
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_emailaddress", 
+            "name": "Can add email address", 
+            "content_type": 34
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_emailaddress", 
+            "name": "Can change email address", 
+            "content_type": 34
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_emailaddress", 
+            "name": "Can delete email address", 
+            "content_type": 34
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_emailconfirmation", 
+            "name": "Can add email confirmation", 
+            "content_type": 35
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_emailconfirmation", 
+            "name": "Can change email confirmation", 
+            "content_type": 35
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_emailconfirmation", 
+            "name": "Can delete email confirmation", 
+            "content_type": 35
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_signupcode", 
+            "name": "Can add signup code", 
+            "content_type": 32
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_signupcode", 
+            "name": "Can change signup code", 
+            "content_type": 32
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_signupcode", 
+            "name": "Can delete signup code", 
+            "content_type": 32
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_signupcoderesult", 
+            "name": "Can add signup code result", 
+            "content_type": 33
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_signupcoderesult", 
+            "name": "Can change signup code result", 
+            "content_type": 33
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_signupcoderesult", 
+            "name": "Can delete signup code result", 
+            "content_type": 33
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_logentry", 
+            "name": "Can add log entry", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_logentry", 
+            "name": "Can change log entry", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_logentry", 
+            "name": "Can delete log entry", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_group", 
+            "name": "Can add group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_group", 
+            "name": "Can change group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_group", 
+            "name": "Can delete group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_permission", 
+            "name": "Can add permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_permission", 
+            "name": "Can change permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_permission", 
+            "name": "Can delete permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_user", 
+            "name": "Can add user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_user", 
+            "name": "Can change user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_user", 
+            "name": "Can delete user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_presentationcategory", 
+            "name": "Can add presentation category", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_presentationcategory", 
+            "name": "Can change presentation category", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_presentationcategory", 
+            "name": "Can delete presentation category", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_presentationkind", 
+            "name": "Can add presentation kind", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_presentationkind", 
+            "name": "Can change presentation kind", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_presentationkind", 
+            "name": "Can delete presentation kind", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_contenttype", 
+            "name": "Can add content type", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_contenttype", 
+            "name": "Can change content type", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_contenttype", 
+            "name": "Can delete content type", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_proposal", 
+            "name": "Can add proposal", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_proposal", 
+            "name": "Can change proposal", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_proposal", 
+            "name": "Can delete proposal", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_comment", 
+            "name": "Can add comment", 
+            "content_type": 17
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_comment", 
+            "name": "Can change comment", 
+            "content_type": 17
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_comment", 
+            "name": "Can delete comment", 
+            "content_type": 17
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_latestvote", 
+            "name": "Can add latest vote", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_latestvote", 
+            "name": "Can change latest vote", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_latestvote", 
+            "name": "Can delete latest vote", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_proposalmessage", 
+            "name": "Can add proposal message", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_proposalmessage", 
+            "name": "Can change proposal message", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_proposalmessage", 
+            "name": "Can delete proposal message", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_proposalresult", 
+            "name": "Can add proposal result", 
+            "content_type": 16
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_proposalresult", 
+            "name": "Can change proposal result", 
+            "content_type": 16
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_proposalresult", 
+            "name": "Can delete proposal result", 
+            "content_type": 16
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_review", 
+            "name": "Can add review", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_review", 
+            "name": "Can change review", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_review", 
+            "name": "Can delete review", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_reviewassignment", 
+            "name": "Can add review assignment", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_reviewassignment", 
+            "name": "Can change review assignment", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_reviewassignment", 
+            "name": "Can delete review assignment", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_plenary", 
+            "name": "Can add plenary", 
+            "content_type": 28
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_plenary", 
+            "name": "Can change plenary", 
+            "content_type": 28
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_plenary", 
+            "name": "Can delete plenary", 
+            "content_type": 28
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_presentation", 
+            "name": "Can add presentation", 
+            "content_type": 27
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_presentation", 
+            "name": "Can change presentation", 
+            "content_type": 27
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_presentation", 
+            "name": "Can delete presentation", 
+            "content_type": 27
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_recess", 
+            "name": "Can add recess", 
+            "content_type": 29
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_recess", 
+            "name": "Can change recess", 
+            "content_type": 29
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_recess", 
+            "name": "Can delete recess", 
+            "content_type": 29
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_session", 
+            "name": "Can add session", 
+            "content_type": 24
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_session", 
+            "name": "Can change session", 
+            "content_type": 24
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_session", 
+            "name": "Can delete session", 
+            "content_type": 24
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_sessionrole", 
+            "name": "Can add session role", 
+            "content_type": 25
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_sessionrole", 
+            "name": "Can change session role", 
+            "content_type": 25
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_sessionrole", 
+            "name": "Can delete session role", 
+            "content_type": 25
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_slot", 
+            "name": "Can add slot", 
+            "content_type": 26
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_slot", 
+            "name": "Can change slot", 
+            "content_type": 26
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_slot", 
+            "name": "Can delete slot", 
+            "content_type": 26
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_track", 
+            "name": "Can add track", 
+            "content_type": 23
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_track", 
+            "name": "Can change track", 
+            "content_type": 23
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_track", 
+            "name": "Can delete track", 
+            "content_type": 23
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_userbookmark", 
+            "name": "Can add user bookmark", 
+            "content_type": 30
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_userbookmark", 
+            "name": "Can change user bookmark", 
+            "content_type": 30
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_userbookmark", 
+            "name": "Can delete user bookmark", 
+            "content_type": 30
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_session", 
+            "name": "Can add session", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_session", 
+            "name": "Can change session", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_session", 
+            "name": "Can delete session", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_site", 
+            "name": "Can add site", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_site", 
+            "name": "Can change site", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_site", 
+            "name": "Can delete site", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_speaker", 
+            "name": "Can add speaker", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_speaker", 
+            "name": "Can change speaker", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_speaker", 
+            "name": "Can delete speaker", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_benefit", 
+            "name": "Can add benefit", 
+            "content_type": 20
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_benefit", 
+            "name": "Can change benefit", 
+            "content_type": 20
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_benefit", 
+            "name": "Can delete benefit", 
+            "content_type": 20
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_benefitlevel", 
+            "name": "Can add benefit level", 
+            "content_type": 21
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_benefitlevel", 
+            "name": "Can change benefit level", 
+            "content_type": 21
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_benefitlevel", 
+            "name": "Can delete benefit level", 
+            "content_type": 21
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_sponsor", 
+            "name": "Can add sponsor", 
+            "content_type": 19
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_sponsor", 
+            "name": "Can change sponsor", 
+            "content_type": 19
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_sponsor", 
+            "name": "Can delete sponsor", 
+            "content_type": 19
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_sponsorbenefit", 
+            "name": "Can add sponsor benefit", 
+            "content_type": 22
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_sponsorbenefit", 
+            "name": "Can change sponsor benefit", 
+            "content_type": 22
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_sponsorbenefit", 
+            "name": "Can delete sponsor benefit", 
+            "content_type": 22
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_sponsorlevel", 
+            "name": "Can add sponsor level", 
+            "content_type": 18
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_sponsorlevel", 
+            "name": "Can change sponsor level", 
+            "content_type": 18
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_sponsorlevel", 
+            "name": "Can delete sponsor level", 
+            "content_type": 18
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "santisp", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2012-07-17T15:07:31.226Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$pymaDoOWhm3q$SmamluHw+iXvyPG/jK9yAvbKpTV0BI2FFne0l0h2QSo=", 
+            "email": "a@b.com", 
+            "date_joined": "2012-07-17T14:31:12.618Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "user", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2012-07-17T17:37:32.831Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$NnmVohcht0z3$BD5mudNJpZQfbpTGnquBSfOAwXERvbbdm2599parQuI=", 
+            "email": "", 
+            "date_joined": "2012-07-17T17:37:32.831Z"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2012-07-17T17:37:38.422Z", 
+            "object_repr": "Mc Donalds", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 19
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2012-07-17T17:37:33.001Z", 
+            "object_repr": "user", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2012-07-17T17:36:29.321Z", 
+            "object_repr": "Coca Cola", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 19
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2012-07-17T17:35:14.810Z", 
+            "object_repr": "Silver", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 18
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2012-07-17T17:35:00.268Z", 
+            "object_repr": "Gold", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 18
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "account.account", 
+        "fields": {
+            "timezone": "America/Chicago", 
+            "user": 1, 
+            "language": "en-us"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "account.account", 
+        "fields": {
+            "timezone": "America/Chicago", 
+            "user": 2, 
+            "language": "en-us"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sponsors_pro.sponsor", 
+        "fields": {
+            "added": "2012-07-17T17:35:28Z", 
+            "name": "Coca Cola", 
+            "level": 1, 
+            "sponsor_logo": null, 
+            "applicant": 1, 
+            "contact_email": "coca@coca.com", 
+            "active": true, 
+            "contact_name": "Coca", 
+            "annotation": "", 
+            "external_url": "http://www.coca.com/"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "sponsors_pro.sponsor", 
+        "fields": {
+            "added": "2012-07-17T17:36:33Z", 
+            "name": "Mc Donalds", 
+            "level": 2, 
+            "sponsor_logo": null, 
+            "applicant": 2, 
+            "contact_email": "mc@mc.com", 
+            "active": true, 
+            "contact_name": "mc", 
+            "annotation": "", 
+            "external_url": "http://www.mc.com/"
+        }
+    }
+]

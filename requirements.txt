@@ -11,7 +11,7 @@ django-appconf==0.5
 django-compressor==1.2a1
 django-debug-toolbar==0.9.1
 django-email-confirmation==0.2
-django-forms-bootstrap==2.0.3.post1
+#django-forms-bootstrap==2.0.3.post1
 django-mailer==0.2a1
 django-markitup==1.0.0
 django-openid==0.3a1
@@ -28,3 +28,5 @@ python-openid==2.2.5
 pytz==2011n
 -e git+git://github.com/sophilabs/symposion.git#egg=symposion
 wsgiref==0.1.2
+
+-e git+git://github.com/earle/django-bootstrap.git#egg=bootstrap
