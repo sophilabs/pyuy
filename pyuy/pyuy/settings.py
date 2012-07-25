@@ -98,6 +98,9 @@ WSGI_APPLICATION = 'pyuy.wsgi.application'
 TEMPLATE_DIRS = (
 
 )
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -118,15 +121,15 @@ INSTALLED_APPS = (
     'symposion.schedule',
     'bootstrap',
     'pycon',
+    #'blog'
 
 )
 
 ACCEPTING_PROPOSALS = True
-
 MARKITUP_AUTO_PREVIEW = True
 MARKITUP_SET = "markitup/sets/markdown-custom"
 MARKITUP_SKIN = "markitup/skins/simple"
-MARKITUP_FILTER = ("django.contrib.markup", {})
+MARKITUP_FILTER = ["markdown.markdown", {}]
 MARKITUP_MEDIA_URL = STATIC_URL
 
 # A sample logging configuration. The only tangible logging

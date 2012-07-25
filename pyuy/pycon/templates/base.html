@@ -26,6 +26,16 @@
                     <li class="">
                         <a href="/proposal_add">Send Proposal</a>
                     </li>
+                    <li class="">
+                        {% if user.is_authenticated %}
+                            <a href="/accounts/log_out">Log out</a>
+                        {% else %}
+                            <a href="/accounts/login">Log in</a>
+                        {% endif %}
+                    </li>
+                    <li class="">
+                        <a href="/sign_up">Sign up</a>
+                    </li>
                 </ul>
             </div>
         </div>

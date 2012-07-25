@@ -26,7 +26,11 @@ pinax-utils==1.0b1.dev3
 psycopg2==2.4.5
 python-openid==2.2.5
 pytz==2011n
--e git+git://github.com/sophilabs/symposion.git#egg=symposion
+symposion
+biblion
+creole
+pygments
+#-e git+git://github.com/pinax/symposion.git#egg=symposion
 wsgiref==0.1.2
 
 -e git+git://github.com/earle/django-bootstrap.git#egg=bootstrap
