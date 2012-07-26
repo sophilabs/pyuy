@@ -33,6 +33,15 @@
                             <a href="/accounts/login">Log in</a>
                         {% endif %}
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="">
+                        <a href="/accounts/profile">Profile</a>
+                    </li>
+                    {% else %}
+                    <li class="">
+                        <a href="/accounts/login?next=/accounts/profile/">Profile</a>
+                    </li>
+                    {% endif %}
                     <li class="">
                         <a href="/sign_up">Sign up</a>
                     </li>

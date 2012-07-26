@@ -1,15 +1,16 @@
 # Create your views here.
 import datetime
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.db import IntegrityError
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from symposion.speakers.models import Speaker
-from forms import ProposalForm, SignForm
+from forms import ProposalForm
 from symposion.proposals.models import Proposal
 from django.template import RequestContext
-from django.contrib.auth.admin import User
+from pycon.forms import SpeakerForm, UserCreateForm, ProfileForm, PasswordForm
 
 def index(request):
     return render_to_response('index.html')
@@ -17,68 +18,102 @@ def index(request):
 @login_required
 def proposal_add(request):
     if request.method == 'POST': # If the form has been submitted...
-        form = ProposalForm(request.POST) # A form bound to the POST data
-        if form.is_valid():
-            title = form.cleaned_data['title']
-            description = form.cleaned_data['description']
-            kind =  form.cleaned_data['kind']
-            category =  form.cleaned_data['category']
-            abstract = form.cleaned_data['abstract']
-            audience_level = form.cleaned_data['audience_level']
-            additional_notes = form.cleaned_data['additional_notes']
-            extreme =  form.cleaned_data['extreme']
-            duration =  form.cleaned_data['duration']
-            additional_speakers = form.cleaned_data['additional_speakers']
-            submitted = datetime.datetime.now()
+        formP = ProposalForm(request.POST) # A form bound to the POST data
+        formS = SpeakerForm(request.POST)
+        try:
+            Speaker.objects.get(user=request.user)
             speaker = Speaker.objects.get(user=request.user)
+        except Speaker.DoesNotExist:
+            if formS.is_valid():
+                    name = formS.cleaned_data['name']
+                    biography = formS.cleaned_data['biography']
+                    annotation = formS.cleaned_data['annotation']
 
-            p = Proposal.objects.create(title=title, description=description, kind=kind, category=category, abstract=abstract, audience_level=audience_level, additional_notes=additional_notes, extreme=extreme, duration=duration, speaker=speaker, submitted=submitted, cancelled=False)
+                    speaker = Speaker.objects.create(user=request.user, name=name, biography=biography, annotation=annotation, invite_email=request.user.email, invite_token="")
+                    speaker.save()
+            else:
+                return render_to_response('proposal_add.html', {
+                    'formP':formP, 'formS':formS
+                }, RequestContext(request))
+
+        if formP.is_valid():
+            title = formP.cleaned_data['title']
+            description = formP.cleaned_data['description']
+            kind =  formP.cleaned_data['kind']
+            category =  formP.cleaned_data['category']
+            abstract = formP.cleaned_data['abstract']
+            audience_level = formP.cleaned_data['audience_level']
+            additional_notes = formP.cleaned_data['additional_notes']
+            extreme =  formP.cleaned_data['extreme']
+            duration =  formP.cleaned_data['duration']
+            additional_speakers = formP.cleaned_data['additional_speakers']
+            submitted = datetime.datetime.now()
+
+            proposal = Proposal.objects.create(title=title, description=description, kind=kind, category=category, abstract=abstract, audience_level=audience_level, additional_notes=additional_notes, extreme=extreme, duration=duration, speaker=speaker, submitted=submitted, cancelled=False)
             if additional_speakers is not None:
-                p.additional_speakers.add(additional_speakers)
+                proposal.additional_speakers.add(additional_speakers)
 
-            p.save()
+            proposal.save()
             return HttpResponseRedirect('/proposal_sent/') # Redirect after POST
     else:
-        form = ProposalForm() # An unbound form
+        try:
+            Speaker.objects.get(user=request.user)
+            formS = ""
+        except Speaker.DoesNotExist:
+            formS = SpeakerForm()
+        formP = ProposalForm()
 
     return render_to_response('proposal_add.html', {
-        'form': form,
+        'formP':formP, 'formS':formS
         }, RequestContext(request))
 
 
 def sign_up(request):
     if request.method == 'POST':
-        form = SignForm(request.POST)
+        form = UserCreateForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            biography = form.cleaned_data['biography']
-            username = form.cleaned_data['user_name']
-            annotation = form.cleaned_data['annotation']
-            email= form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            try:
-                user = User.objects.create_user(username, email, password)
-                user.save()
-                speaker = Speaker.objects.create(user=user, name=name, biography=biography, annotation=annotation, invite_token="")
-                speaker.save()
-                ret= HttpResponseRedirect('/signed/')
-            except IntegrityError:
-                ret= render_to_response('sign_up.html', {
-                    'form': form,
-                    })
-
-            return ret
+            form.save()
+            new_user = authenticate(username=request.POST['username'], password=request.POST['password1'])
+            login(request, new_user)
+            return HttpResponseRedirect('../signed')
     else:
-        form = SignForm() # An unbound form
+        form = UserCreateForm()
 
-    return render_to_response('sign_up.html', {
-        'form': form,
-        }, RequestContext(request))
-
+    return render_to_response('sign_up.html', {'form' : form}, context_instance=RequestContext(request))
 
 def signed(request):
     return render_to_response('signed.html')
 
-
 def proposal_sent(request):
     return render_to_response('proposal_sent.html')
+
+@login_required
+def profile(request):
+    data = {'username': request.user.username,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': request.user.email}
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, data)
+        formPass = PasswordForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+
+            user = User.objects.get(username=request.user.username)
+            user.username=username
+            user.first_name=first_name
+            user.last_name=last_name
+            user.email=email
+            user.save()
+            return HttpResponseRedirect('../profile')
+
+        if formPass.is_valid():
+
+            return HttpResponseRedirect('../profile')
+    else:
+        form = ProfileForm(data)
+        formPass = PasswordForm(request.user)
+    return render_to_response('profile.html', {'form' : form, 'formPass' : formPass}, context_instance=RequestContext(request))

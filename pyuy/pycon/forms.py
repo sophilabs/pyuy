@@ -2,11 +2,29 @@ from django import forms
 from symposion.proposals.models import PresentationCategory, PresentationKind, Proposal
 from symposion.speakers.models import Speaker
 from bootstrap.forms import BootstrapForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.models import User
 
+class UserCreateForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ("username", "email", "password1", "password2")
+
+    def save(self):
+        user = super(UserCreateForm, self).save()
+        user.email = self.cleaned_data["email"]
+        return user
+
+class SpeakerForm(BootstrapForm):
+    name = forms.CharField(max_length=50)
+    biography = forms.CharField(widget=forms.Textarea)
+    annotation = forms.CharField(widget=forms.Textarea)
 
 class ProposalForm(BootstrapForm):
     title = forms.CharField(max_length=100)
-    description = forms.CharField()
+    description = forms.CharField(widget=forms.Textarea)
     kind = forms.ModelChoiceField(PresentationKind.objects.all().order_by('name'))
     category = forms.ModelChoiceField(PresentationCategory.objects.all().order_by('name'))
     abstract = forms.CharField(widget=forms.Textarea)
@@ -16,12 +34,13 @@ class ProposalForm(BootstrapForm):
     duration = forms.ChoiceField(choices=Proposal.DURATION_CHOICES)
     additional_speakers = forms.ModelChoiceField(Speaker.objects.all().order_by('name'), required=False)
 
-class SignForm(BootstrapForm):
-    user_name = forms.CharField(max_length=50)
+class ProfileForm(BootstrapForm):
+    username = forms.CharField(max_length=50)
+    first_name = forms.CharField(max_length=50, required=False)
+    last_name = forms.CharField(max_length=50, required=False)
     email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput())
-    name = forms.CharField(max_length=50)
-    biography = forms.CharField(widget=forms.Textarea)
-    annotation= forms.CharField(widget=forms.Textarea)
+
+class PasswordForm(PasswordChangeForm):
+    pass
 
 
