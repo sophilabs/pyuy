@@ -26,13 +26,18 @@
                     <li class="">
                         <a href="/proposal_add">Send Proposal</a>
                     </li>
-                    <li class="">
-                        {% if user.is_authenticated %}
-                            <a href="/accounts/log_out">Log out</a>
-                        {% else %}
-                            <a href="/accounts/login">Log in</a>
-                        {% endif %}
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="/accounts/log_out">Log out</a>
                     </li>
+                    {% else %}
+                    <li>
+                        <a href="/accounts/login">Log in</a>
+                    </li>
+                    <li>
+                        <a href="/password/reset">Forgot password?</a>
+                    </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="">
                         <a href="/accounts/profile">Profile</a>

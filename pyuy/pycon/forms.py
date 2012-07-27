@@ -2,7 +2,7 @@ from django import forms
 from symposion.proposals.models import PresentationCategory, PresentationKind, Proposal
 from symposion.speakers.models import Speaker
 from bootstrap.forms import BootstrapForm
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.models import User
 
 class UserCreateForm(UserCreationForm):
@@ -35,7 +35,6 @@ class ProposalForm(BootstrapForm):
     additional_speakers = forms.ModelChoiceField(Speaker.objects.all().order_by('name'), required=False)
 
 class ProfileForm(BootstrapForm):
-    username = forms.CharField(max_length=50)
     first_name = forms.CharField(max_length=50, required=False)
     last_name = forms.CharField(max_length=50, required=False)
     email = forms.EmailField()
@@ -43,4 +42,6 @@ class ProfileForm(BootstrapForm):
 class PasswordForm(PasswordChangeForm):
     pass
 
+class PassResetForm(PasswordResetForm):
+    pass
 

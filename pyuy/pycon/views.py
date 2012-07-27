@@ -89,31 +89,22 @@ def proposal_sent(request):
 
 @login_required
 def profile(request):
-    data = {'username': request.user.username,
-            'first_name': request.user.first_name,
+    data = {'first_name': request.user.first_name,
             'last_name': request.user.last_name,
             'email': request.user.email}
     if request.method == 'POST':
         form = ProfileForm(request.POST, data)
-        formPass = PasswordForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
 
             user = User.objects.get(username=request.user.username)
-            user.username=username
             user.first_name=first_name
             user.last_name=last_name
             user.email=email
             user.save()
             return HttpResponseRedirect('../profile')
-
-        if formPass.is_valid():
-
-            return HttpResponseRedirect('../profile')
     else:
         form = ProfileForm(data)
-        formPass = PasswordForm(request.user)
-    return render_to_response('profile.html', {'form' : form, 'formPass' : formPass}, context_instance=RequestContext(request))
+    return render_to_response('profile.html', {'form' : form}, context_instance=RequestContext(request))
