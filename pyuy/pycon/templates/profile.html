@@ -5,14 +5,11 @@
 {% block content %}
 <section>
     <div class="page-header">
-        <h1>{{ user.username }}'s profile:</h1>
+        <h1>{{ user.username }}'s profile</h1>
     </div>
+    {% block message %}{{ block.super }}{% endblock %}
     <form method="post" class="form-horizontal">
         {% csrf_token %}
-        <div class="fieldWrapper">
-            <label>Password:</label>
-            <a href="/password/change/" >Change password</a>
-        </div>
         <div class="fieldWrapper">
             {{ form.first_name.errors }}
             <label>First name:</label>
@@ -22,6 +19,10 @@
             {{ form.last_name.errors }}
             <label>Last name:</label>
             {{ form.last_name }}
+        </div>
+        <div class="fieldWrapper">
+            <label>Password:</label>
+            <a href="/password/change/" >Change password</a>
         </div>
         <div class="fieldWrapper">
             {{ form.email.errors }}

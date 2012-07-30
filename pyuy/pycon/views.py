@@ -1,19 +1,20 @@
 # Create your views here.
 import datetime
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.views import password_change
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from symposion.speakers.models import Speaker
 from forms import ProposalForm
 from symposion.proposals.models import Proposal
 from django.template import RequestContext
-from pycon.forms import SpeakerForm, UserCreateForm, ProfileForm, PasswordForm
+from pycon.forms import SpeakerForm, UserCreateForm, ProfileForm
 
 def index(request):
-    return render_to_response('index.html')
+    return render_to_response('index.html', context_instance=RequestContext(request))
 
 @login_required
 def proposal_add(request):
@@ -25,16 +26,15 @@ def proposal_add(request):
             speaker = Speaker.objects.get(user=request.user)
         except Speaker.DoesNotExist:
             if formS.is_valid():
-                    name = formS.cleaned_data['name']
                     biography = formS.cleaned_data['biography']
                     annotation = formS.cleaned_data['annotation']
 
-                    speaker = Speaker.objects.create(user=request.user, name=name, biography=biography, annotation=annotation, invite_email=request.user.email, invite_token="")
+                    speaker = Speaker.objects.create(user=request.user, name=request.user.first_name+' '+request.user.last_name, biography=biography, annotation=annotation, invite_email=request.user.email, invite_token="")
                     speaker.save()
             else:
                 return render_to_response('proposal_add.html', {
                     'formP':formP, 'formS':formS
-                }, RequestContext(request))
+                }, context_instance=RequestContext(request))
 
         if formP.is_valid():
             title = formP.cleaned_data['title']
@@ -67,6 +67,9 @@ def proposal_add(request):
         'formP':formP, 'formS':formS
         }, RequestContext(request))
 
+def proposal_sent(request):
+    return render_to_response('proposal_sent.html', context_instance=RequestContext(request))
+
 
 def sign_up(request):
     if request.method == 'POST':
@@ -75,17 +78,12 @@ def sign_up(request):
             form.save()
             new_user = authenticate(username=request.POST['username'], password=request.POST['password1'])
             login(request, new_user)
-            return HttpResponseRedirect('../signed')
+            messages.add_message(request, messages.SUCCESS, 'You were registered successfully.')
+            return HttpResponseRedirect('../accounts/profile')
     else:
         form = UserCreateForm()
 
     return render_to_response('sign_up.html', {'form' : form}, context_instance=RequestContext(request))
-
-def signed(request):
-    return render_to_response('signed.html')
-
-def proposal_sent(request):
-    return render_to_response('proposal_sent.html')
 
 @login_required
 def profile(request):
@@ -93,18 +91,40 @@ def profile(request):
             'last_name': request.user.last_name,
             'email': request.user.email}
     if request.method == 'POST':
-        form = ProfileForm(request.POST, data)
+        form = ProfileForm(request.POST)
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
+            email = form.cleaned_data['username']
 
             user = User.objects.get(username=request.user.username)
             user.first_name=first_name
             user.last_name=last_name
             user.email=email
             user.save()
-            return HttpResponseRedirect('../profile')
+            messages.add_message(request, messages.SUCCESS, 'Profile updated successfully.')
+            return HttpResponseRedirect('')
     else:
         form = ProfileForm(data)
     return render_to_response('profile.html', {'form' : form}, context_instance=RequestContext(request))
+
+def email_change(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user = User.objects.get(username = request.user.username)
+            user.email = email
+            user.save()
+            messages.add_message(request, messages.SUCCESS, 'Email updated successfully.')
+            return HttpResponseRedirect('../accounts/profile')
+    else:
+        form = EmailForm()
+
+    return render_to_response('email_change.html', {'form': form}, context_instance=RequestContext(request))
+
+def my_password_change(request):
+    response = password_change(request, template_name='password_change.html', post_change_redirect= '../../accounts/profile')
+    if isinstance(response, HttpResponseRedirect):
+        messages.add_message(request, messages.SUCCESS, 'Password changed successfully.')
+    return response
