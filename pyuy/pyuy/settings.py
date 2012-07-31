@@ -1,7 +1,7 @@
 import os
 
 PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
-
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 def rel(*x):
     return os.path.join(PROJECT_ROOT, *x)
 
@@ -53,12 +53,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 
 STATIC_ROOT = rel('collectedstatic')
@@ -66,6 +66,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     rel('static'),
 )
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -86,6 +87,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -96,10 +101,21 @@ ROOT_URLCONF = 'pyuy.urls'
 WSGI_APPLICATION = 'pyuy.wsgi.application'
 
 TEMPLATE_DIRS = (
-
+)
+CMS_TEMPLATES = (
+    ('template.html', 'Template One'),
+)
+LANGUAGES = (
+    ('en', 'English'),
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
     'django.contrib.messages.context_processors.messages'
 )
 
@@ -120,9 +136,24 @@ INSTALLED_APPS = (
     'symposion.review',
     'symposion.sponsors_pro',
     'symposion.schedule',
+
     'bootstrap',
     'pycon',
 
+    'cms',
+    'mptt',
+    'menus',
+    'south',
+    'sekizai',
+    'cms.plugins.file',
+    'cms.plugins.flash',
+    'cms.plugins.googlemap',
+    'cms.plugins.link',
+    'cms.plugins.picture',
+    'cms.plugins.teaser',
+    'cms.plugins.text',
+    'cms.plugins.video',
+    'cms.plugins.twitter',
 )
 
 ACCEPTING_PROPOSALS = True

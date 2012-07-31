@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+{% load cms_tags sekizai_tags %}
+    <html lang="en"><head>
     <meta charset="utf-8">
     <title>{% block title %}Pycon{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    {% render_block "css" %}
 </head>
 
 <body>
@@ -67,10 +68,16 @@
             {% endif %}
         {% endblock %}
     {% endblock %}
+    <!-- CMS (not renders) -->
+    {% cms_toolbar %}
+    {% placeholder base_content %}
+    {% block base_content %}{% endblock %}
+    <!-- ENDCMS -->
     <footer class="footer">
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>Sophilabs 2012</p>
     </footer>
 </div>
+{% render_block "js" %}
 </body>
 </html>
