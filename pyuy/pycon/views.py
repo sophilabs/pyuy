@@ -100,16 +100,18 @@ def profile(request):
             last_name = form.cleaned_data['last_name']
 
             user = request.user
-            if User.objects.filter(username=username).count() > 0:
-                if username != user.username:
+            if username != user.username:
+                if User.objects.filter(username=username).count() > 0:
                     messages.add_message(request, messages.ERROR, u'%s already exists' % username)
+                    messages.add_message(request, messages.SUCCESS, 'Personal data updated correctly.')
             else:
                 user.username = username
-                user.first_name=first_name
-                user.last_name=last_name
                 user.email = username
-                user.save()
                 messages.add_message(request, messages.SUCCESS, 'Profile updated successfully.')
+            user.first_name=first_name
+            user.last_name=last_name
+            user.save()
+
 
             return HttpResponseRedirect('')
     else:
