@@ -9,7 +9,16 @@
     </div>
     <form method="post" class="form-horizontal">
         {% csrf_token %}
-        {{ form }}
+        <div class="fieldWrapper">
+            {{ form.username.errors }}
+            <label>Email:</label>
+            {{ form.username }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.password.errors }}
+            <label>Password:</label>
+            {{ form.password }}
+        </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Log in</button>
         </div>

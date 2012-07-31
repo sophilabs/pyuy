@@ -11,6 +11,11 @@
     <form method="post" class="form-horizontal">
         {% csrf_token %}
         <div class="fieldWrapper">
+            {{ form.username.errors }}
+            <label>Email:</label>
+            {{ form.username }}
+        </div>
+        <div class="fieldWrapper">
             {{ form.first_name.errors }}
             <label>First name:</label>
             {{ form.first_name }}
@@ -23,11 +28,6 @@
         <div class="fieldWrapper">
             <label>Password:</label>
             <a href="/password/change/" >Change password</a>
-        </div>
-        <div class="fieldWrapper">
-            {{ form.email.errors }}
-            <label>Email:</label>
-            {{ form.email }}
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Save changes</button>
