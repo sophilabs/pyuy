@@ -2,7 +2,7 @@
 {% load cms_tags sekizai_tags %}
     <html lang="en"><head>
     <meta charset="utf-8">
-    <title>{% block title %}Pycon{% endblock %}</title>
+    <title>{% block title %}PyUy{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,14 +18,14 @@
 </head>
 
 <body>
+{% cms_toolbar %}
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/">PyConUy 2012</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li class="">
-                        <a href="/proposal_add">Send Proposal</a>
+                    <li>
+                        <a class="brand" href="/news">PyUy</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li>
@@ -57,26 +57,42 @@
     </div>
 </div>
 <div class="container">
-    {% block content %}
-        {% block message %}
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        {% endblock %}
-    {% endblock %}
-    <!-- CMS (not renders) -->
-    {% cms_toolbar %}
-    {% placeholder base_content %}
-    {% block base_content %}{% endblock %}
-    <!-- ENDCMS -->
-    <footer class="footer">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Sophilabs 2012</p>
-    </footer>
+    <section>
+        <div class="row">
+            <div class="span4">
+                {% block sub_title %}
+                    <div class="row">
+                        <h1>PyUy</h1>
+                    </div>
+                        <a href="/pycon"><h3>PyCon 2012</h3></a>
+                {% endblock %}
+                {% placeholder introduction_content %}
+                {% block introduction_content %}{% endblock %}
+                <div class="row">
+                    {% placeholder map_content %}
+                    {% block map_content %}{% endblock %}
+                </div>
+            </div>
+            <div class="span 8">
+                {% block message %}
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endblock %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
+    <section>
+        <footer class="footer">
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>Sophilabs 2012</p>
+        </footer>
+    </section>
 </div>
 {% render_block "js" %}
 </body>

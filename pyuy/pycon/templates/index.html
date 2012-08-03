@@ -1,25 +1,18 @@
-{% extends 'template.html' %}
+{% extends 'index_extended.html' %}
 
-{%block title %}{{ block.super }}{% endblock %}
+{% block title %}PyCon-PyUy{% endblock %}
 
-{% block content %}
-<section>
-<div class="page-header">
-    <h1>PyConUY 2012</h1>
-</div>
-<div class="row">
-    <div class="span4">
-
+{% block sub_title %}
+    <div class="row">
+        <h1>PyCon 2012</h1>
     </div>
-    <div class="span4">
-
-    </div>
-    <div class="span4">
-
-    </div>
-</div>
-</section>
 {% endblock %}
+{% block content %}
+    <div class="row">
+        <a href="proposal_add"><h2>Send a proposal</h2></a>
+    </div>
+{% endblock %}
+
 
 
 

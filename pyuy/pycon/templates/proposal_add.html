@@ -1,17 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 
 {%block title %}Proposals{% endblock %}
 
 {% block content %}
-<section>
     <div class="page-header">
         <h1>Send a proposal</h1>
     </div>
     <form method="post" class="form-horizontal">
         {% csrf_token %}
         {% if formS %}
-        <h3>About you:</h3>
-        {{ formS }}
+            <h3>About you:</h3>
+            {{ formS }}
         {% endif %}
         <h3>Your proposal:</h3>
         {{ formP }}
@@ -19,5 +18,4 @@
             <button type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
-</section>
 {% endblock %}

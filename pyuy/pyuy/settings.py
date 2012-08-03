@@ -1,4 +1,5 @@
 import os
+gettext = lambda s: s
 
 PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -91,6 +92,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
+    'cmsplugin_blog.middleware.MultilingualBlogEntriesMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -101,12 +103,21 @@ ROOT_URLCONF = 'pyuy.urls'
 WSGI_APPLICATION = 'pyuy.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(PROJECT_PATH, 'templates'),
+
 )
 CMS_TEMPLATES = (
-    ('template.html', 'Template One'),
+    ('cmsplugin_blog/cmsplugin_blog_base.html','cmsplugin_blog'),
+    ('cmsplugin_blog/entry_detail.html','cmsplugin_blog_detail'),
 )
+CMS_LANGUAJES = (
+    ('en', gettext('English')),
+    ('es', gettext('Spanish')),
+)
+
 LANGUAGES = (
-    ('en', 'English'),
+    ('en', gettext('English')),
+    ('es', gettext('Spanish')),
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -138,6 +149,7 @@ INSTALLED_APPS = (
     'symposion.schedule',
 
     'bootstrap',
+    'pyuy',
     'pycon',
 
     'cms',
@@ -154,6 +166,13 @@ INSTALLED_APPS = (
     'cms.plugins.text',
     'cms.plugins.video',
     'cms.plugins.twitter',
+
+    'cmsplugin_blog',
+    'djangocms_utils',
+    'simple_translation',
+    'tagging',
+    'django.contrib.staticfiles',
+    'missing',
 )
 
 ACCEPTING_PROPOSALS = True
@@ -193,3 +212,7 @@ LOGGING = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+JQUERY_JS = 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+JQUERY_UI_JS = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'
+JQUERY_UI_CSS = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css'
+CMSPLUGIN_BLOG_PLACEHOLDERS = ('first', 'second', 'third')
