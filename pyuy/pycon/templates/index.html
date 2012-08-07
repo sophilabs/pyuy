@@ -1,11 +1,16 @@
-{% extends 'index_extended.html' %}
-
+{% extends 'base.html' %}
+{% load cms_tags %}
 {% block title %}PyCon-PyUy{% endblock %}
-
 {% block sub_title %}
-    <div class="row">
-        <h1>PyCon 2012</h1>
-    </div>
+<div class="row">
+    <h1>PyCon</h1>
+</div>
+<a href="../"><h4>Back to home</h4></a>
+{% endblock %}
+{% block base_content %}
+{% placeholder "map" or %}
+{% show_placeholder "map" "home" %}
+{% endplaceholder %}
 {% endblock %}
 {% block content %}
     <div class="row">

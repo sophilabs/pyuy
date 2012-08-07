@@ -1,8 +1,8 @@
 import os
 gettext = lambda s: s
-
-PROJECT_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.join(PROJECT_PATH, '..')
+
 def rel(*x):
     return os.path.join(PROJECT_ROOT, *x)
 
@@ -107,6 +107,9 @@ TEMPLATE_DIRS = (
 
 )
 CMS_TEMPLATES = (
+    ('cmsplugin_blog/base_extended.html', 'Base'),
+    ('cmsplugin_blog/base_pycon_extended.html', 'Base PyCon'),
+    ('cmsplugin_blog/profile_extended.html', 'Profile'),
     ('cmsplugin_blog/cmsplugin_blog_base.html','cmsplugin_blog'),
     ('cmsplugin_blog/entry_detail.html','cmsplugin_blog_detail'),
 )
@@ -127,7 +130,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
-    'django.contrib.messages.context_processors.messages'
+    'django.contrib.messages.context_processors.messages',
+    'pyuy.context_processors.background',
 )
 
 INSTALLED_APPS = (

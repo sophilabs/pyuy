@@ -16,8 +16,8 @@ def sign_up(request):
         form = UserCreateForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            password1 = form.cleaned_data['password1']
-            new_user = User.objects.create_user(username=username, email=username, password=password1)
+            password = form.cleaned_data['password1']
+            new_user = User.objects.create_user(username=username, email=username, password=password)
             new_user.save()
             new_user= authenticate(username=username, password=password1)
             login(request, new_user)
@@ -34,29 +34,23 @@ def profile(request):
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,}
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             username = form.cleaned_data['username']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
 
             user = request.user
-            if username != user.username:
-                if User.objects.filter(username=username).count() > 0:
-                    messages.add_message(request, messages.ERROR, u'%s already exists' % username)
-                    messages.add_message(request, messages.SUCCESS, 'Personal data updated correctly.')
-            else:
-                user.username = username
-                user.email = username
-                messages.add_message(request, messages.SUCCESS, 'Profile updated successfully.')
+            user.username = username
+            user.email = username
+            messages.add_message(request, messages.SUCCESS, 'Profile updated successfully.')
             user.first_name=first_name
             user.last_name=last_name
             user.save()
 
-
             return HttpResponseRedirect('')
     else:
-        form = ProfileForm(data)
+        form = ProfileForm(instance=request.user)
     return render_to_response('profile.html', {'form' : form}, context_instance=RequestContext(request))
 
 def my_password_change(request):

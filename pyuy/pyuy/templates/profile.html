@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
-
-{%block title %}Profile{% endblock %}
-
+{% load cms_tags %}
+{% block title %}Profile{% endblock %}
+{% block base_content %}
+{% placeholder "map" or %}
+{% show_placeholder "map" "home" %}
+{% endplaceholder %}
+{% endblock %}
 {% block content %}
 <section>
     <div class="page-header">
         <h1>{{ user.username }}'s profile</h1>
     </div>
-    {% block message %}{{ block.super }}{% endblock %}
     <form method="post" class="form-horizontal">
         {% csrf_token %}
         <div class="fieldWrapper">

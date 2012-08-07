@@ -1,16 +1,16 @@
-{% extends "cmsplugin_blog/cmsplugin_blog_base.html" %}
+{% extends "base.html" %}
 
 {% load placeholder_tags cmsplugin_blog_tags simple_translation_tags %}
 
-
+{% block content %}
 {% block left-col %}
-{{ block.super }}
 
 <h1>{% with object|get_preferred_translation_from_request:request as title %}{% endwith %}</h1>
 
 <p class="date"><span>{{ object.pub_date|date:"d F Y" }}</span></p>
 
-{% with object.placeholders|choose_placeholder:"first" as content %}muestra
+
+{% with object.placeholders|choose_placeholder:"first" as content %}
 {% render_placeholder content %}
 {% endwith %}
 
@@ -24,4 +24,5 @@
 
 {% render_tag_links %}
 
+{% endblock %}
 {% endblock %}

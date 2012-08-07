@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% load cms_tags sekizai_tags %}
     <html lang="en"><head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{% block title %}PyUy{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -17,16 +18,18 @@
     {% render_block "css" %}
 </head>
 
-<body>
+<body style="background-image: url('{{ background.image.url }}'); background-repeat:no-repeat; background-position:center center;">
 {% cms_toolbar %}
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <div class="nav-collapse collapse">
                 <ul class="nav">
+                    {% block home_path %}
                     <li>
-                        <a class="brand" href="/news">PyUy</a>
+                        <a class="brand" href="/">PyUy</a>
                     </li>
+                    {% endblock %}
                     {% if user.is_authenticated %}
                     <li>
                         <a href="/accounts/log_out">Log out</a>
@@ -66,24 +69,25 @@
                     </div>
                         <a href="/pycon"><h3>PyCon 2012</h3></a>
                 {% endblock %}
-                {% placeholder introduction_content %}
-                {% block introduction_content %}{% endblock %}
+                {% block base_content %}{% placeholder "introduction" %}
                 <div class="row">
-                    {% placeholder map_content %}
-                    {% block map_content %}{% endblock %}
+                    <a href="{{ background.source }}"><img src="{{ background.get_map_source }}"></a>
                 </div>
-            </div>
-            <div class="span 8">
-                {% block message %}
-                    {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                 {% endblock %}
-                {% block content %}{% endblock %}
+            </div>
+            <div class="pull-right">
+                <div class="span 8">
+                    {% block message %}
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endblock %}
+                    {% block content %}{% placeholder "main_content" %}{% endblock %}
+                </div>
             </div>
         </div>
     </section>
