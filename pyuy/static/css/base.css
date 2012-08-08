@@ -1,4 +1,57 @@
 body {
+    color: black;
     position: relative;
     padding-top: 90px;
+}
+#bg {
+    position:fixed;
+    top:-15%;
+    left:0;
+
+    /* Preserve aspet ratio */
+    min-width:100%;
+    min-height:100%;
+    z-index: -1;
+}
+.main-fixed {
+    position: fixed;
+}
+.footer{
+    position: relative;
+}
+.content{
+    min-height: 420px;
+}
+.image {
+    position:relative;
+    float:left; /* optional */
+}
+.image .map-background-title {
+    opacity: 0.5;
+    background-color: #bbbbbb;
+    width: 300px;
+    height: 35px;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.image .map-background-bottom {
+    opacity: 0.5;
+    background-color: #bbbbbb;
+    width: 300px;
+    height: 35px;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    text-align: right;
+}
+.image .map-title {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.image .map-bottom {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
