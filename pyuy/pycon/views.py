@@ -49,7 +49,7 @@ def proposal_add(request):
                 proposal.additional_speakers.add(additional_speakers)
 
             proposal.save()
-            return HttpResponseRedirect('/proposal_sent/') # Redirect after POST
+            return HttpResponseRedirect('/pycon/proposal_sent/') # Redirect after POST
     else:
         try:
             Speaker.objects.get(user=request.user)

@@ -11,7 +11,7 @@ class Background(models.Model):
     googlemap_url = models.URLField(editable=False)
 
     def get_googlemap_url(self):
-        url = "http://maps.google.com/maps/api/staticmap?center=%s,%s&zoom=15&size=300x300&maptype=roadmap&sensor=false" % (self.latitude, self.longitude)
+        url = "http://maps.google.com/maps/api/staticmap?center=%s,%s&zoom=15&size=200x200&maptype=roadmap&sensor=false" % (self.latitude, self.longitude)
         return url
     get_googlemap_url.alters_data = False
 

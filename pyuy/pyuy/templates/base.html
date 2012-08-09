@@ -19,81 +19,77 @@
 </head>
 <body>
 {% cms_toolbar %}
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    {% block home_path %}
-                    <li>
-                        <a class="brand" href="/">PyUy</a>
-                    </li>
-                    {% endblock %}
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="/accounts/log_out">Log out</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="/accounts/login">Log in</a>
-                    </li>
-                    <li>
-                        <a href="/password/reset">Forgot password?</a>
-                    </li>
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                    <li class="">
-                        <a href="/accounts/profile">Profile</a>
-                    </li>
-                    {% else %}
-                    <li class="">
-                        <a href="/accounts/login?next=/accounts/profile/">Profile</a>
-                    </li>
-                    {% endif %}
-                    <li class="">
-                        <a href="/sign_up">Sign up</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div class="main-fixed">
+    <div class="sub-title">
+        {% block sub_title %}
+        <a class="" href="/"><h1>PyUy</h1></a>
+            <a href="/pycon"><h3>PyCon 2012</h3></a>
+        {% endblock %}
+        <ul class="">
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/accounts/log_out">Log out</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/accounts/login">Log in</a>
+            </li>
+            <li>
+                <a href="/password/reset">Forgot password?</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li class="">
+                <a href="/accounts/profile">Profile</a>
+            </li>
+            <li class="">
+                <a href="pycon/proposal_add">Send proposal</a>
+            </li>
+            {% else %}
+            <li class="">
+                <a href="/accounts/login?next=/accounts/profile/">Profile</a>
+            </li>
+            {% endif %}
+            <li class="">
+                <a href="/sign_up">Sign up</a>
+            </li>
+        </ul>
     </div>
-</div>
-<div class="main-fixed span4 pull-left">
-    {% block sub_title %}
-        <h1>PyUy</h1>
-        <a href="/pycon"><h3>PyCon 2012</h3></a>
-    {% endblock %}
     <div class="image">
         <img src="{{ background.get_googlemap_url }}">
         <div class="map-background-title">
         </div>
         <div class="map-title">
-            <h3>{{ background.name }}</h3>
+            <p>{{ background.name }}</p>
         </div>
         <div class="map-background-bottom">
         </div>
         <div class="map-bottom">
-            <h4>Photo courtesy of: <a class="" href="{{ background.source }}">{{ background.autor }}</a></h4>
+            <p>Photo courtesy of: <a class="" href="{{ background.source }}">{{ background.autor }}</a></p>
         </div>
     </div>
 </div>
-<div class="pull-right span8 content">
-    {% block message %}
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endblock %}
-    {% block content %}{% placeholder "main_content" %}{% endblock %}
-</div>
-<div>
-    <footer class="footer span12">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Sophilabs 2012</p>
-    </footer>
+<div class="pull-right content">
+    <div class="span8">
+        <div class="row">
+        {% block message %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endblock %}
+        {% block content %}{% placeholder "main_content" %}{% endblock %}
+        </div>
+    <div class="row">
+            <footer class="footer">
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>Sophilabs 2012</p>
+            </footer>
+        </div>
+    </div>
 </div>
     <img id="bg" src={{ background.image.url }}>
 {% render_block "js" %}

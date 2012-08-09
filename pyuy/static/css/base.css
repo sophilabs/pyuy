@@ -7,29 +7,38 @@ body {
     position:fixed;
     top:-15%;
     left:0;
-
     /* Preserve aspet ratio */
     min-width:100%;
     min-height:100%;
     z-index: -1;
 }
 .main-fixed {
+    left: 20px;
     position: fixed;
 }
 .footer{
     position: relative;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+.sub-title{
+    position: fixed;
 }
 .content{
-    min-height: 420px;
+    position: relative;
+    right: 40px;
 }
 .image {
-    position:relative;
-    float:left; /* optional */
+    position:fixed;
+    bottom: 40px;
+    width: 200px;
+
 }
 .image .map-background-title {
     opacity: 0.5;
     background-color: #bbbbbb;
-    width: 300px;
+    width: 100%;
     height: 35px;
     position:absolute;
     top:0px;
@@ -38,7 +47,7 @@ body {
 .image .map-background-bottom {
     opacity: 0.5;
     background-color: #bbbbbb;
-    width: 300px;
+    width: 100%;
     height: 35px;
     position:absolute;
     bottom:0px;
