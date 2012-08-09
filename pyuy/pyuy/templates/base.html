@@ -20,12 +20,17 @@
 <body>
 {% cms_toolbar %}
 <div class="main-fixed">
-    <div class="sub-title">
+    <ul class="sub-title nav nav-tabs">
         {% block sub_title %}
-        <a class="" href="/"><h1>PyUy</h1></a>
+        <li>
+        <h1>PyUy</h1>
+        </li>
+        <li>
             <a href="/pycon"><h3>PyCon 2012</h3></a>
+        </li>
         {% endblock %}
-        <ul class="">
+    </ul>
+        <ul class="nav nav-pills nav-stacked">
             {% if user.is_authenticated %}
             <li>
                 <a href="/accounts/log_out">Log out</a>
@@ -69,9 +74,9 @@
         </div>
     </div>
 </div>
-<div class="pull-right content">
-    <div class="span8">
-        <div class="row">
+<div class="container">
+    <div class="row">
+        <div class="span8 pull-right">
         {% block message %}
         {% if messages %}
         <ul class="messages">
@@ -83,7 +88,9 @@
         {% endblock %}
         {% block content %}{% placeholder "main_content" %}{% endblock %}
         </div>
+    </div>
     <div class="row">
+        <div class="span8 pull-right">
             <footer class="footer">
                 <p class="pull-right"><a href="#">Back to top</a></p>
                 <p>Sophilabs 2012</p>
@@ -91,7 +98,7 @@
         </div>
     </div>
 </div>
-    <img id="bg" src={{ background.image.url }}>
+<img id="bg" src={{ background.image.url }}>
 {% render_block "js" %}
 </body>
 </html>

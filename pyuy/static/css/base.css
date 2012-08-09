@@ -24,13 +24,11 @@ body {
 }
 .sub-title{
     position: fixed;
-}
-.content{
-    position: relative;
-    right: 40px;
+    top: 10px;
 }
 .image {
     position:fixed;
+    left: 20px;
     bottom: 40px;
     width: 200px;
 
