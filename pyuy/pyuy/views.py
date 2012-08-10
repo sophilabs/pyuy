@@ -19,7 +19,7 @@ def sign_up(request):
             password = form.cleaned_data['password1']
             new_user = User.objects.create_user(username=username, email=username, password=password)
             new_user.save()
-            new_user= authenticate(username=username, password=password1)
+            new_user= authenticate(username=username, password=password)
             login(request, new_user)
             messages.add_message(request, messages.SUCCESS, 'You were registered successfully.')
             return HttpResponseRedirect('../accounts/profile')

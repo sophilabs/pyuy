@@ -31,33 +31,9 @@
         {% endblock %}
     </ul>
         <ul class="nav nav-pills nav-stacked">
-            {% if user.is_authenticated %}
-            <li>
-                <a href="/accounts/log_out">Log out</a>
-            </li>
-            {% else %}
-            <li>
-                <a href="/accounts/login">Log in</a>
-            </li>
-            <li>
-                <a href="/password/reset">Forgot password?</a>
-            </li>
-            {% endif %}
-            {% if user.is_authenticated %}
-            <li class="">
-                <a href="/accounts/profile">Profile</a>
-            </li>
-            <li class="">
-                <a href="pycon/proposal_add">Send proposal</a>
-            </li>
-            {% else %}
-            <li class="">
-                <a href="/accounts/login?next=/accounts/profile/">Profile</a>
-            </li>
-            {% endif %}
-            <li class="">
-                <a href="/sign_up">Sign up</a>
-            </li>
+            {% block menu %}
+                {% placeholder "menu" %}
+            {% endblock %}
         </ul>
     </div>
     <div class="image">
