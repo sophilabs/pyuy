@@ -159,7 +159,7 @@ MARKITUP_AUTO_PREVIEW = True
 MARKITUP_SET = "markitup/sets/markdown-custom"
 MARKITUP_SKIN = "markitup/skins/simple"
 MARKITUP_FILTER = ["markdown.markdown", {}]
-MARKITUP_MEDIA_URL = MEDIA_URL
+MARKITUP_MEDIA_URL = STATIC_URL
 
 JQUERY_JS = None
 JQUERY_UI_JS = None
