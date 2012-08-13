@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% load cms_tags %}
 
 {% load cms_tags %}
 {% load sekizai_tags %}
 {% load background_tags  %}
 {% load static from staticfiles %}
+
+
+{% block menu %}
+    {% show_placeholder "menu" "pycon" %}
+{% endblock %}
 
 {% block css %}
 {{ block.super }}
