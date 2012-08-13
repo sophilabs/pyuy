@@ -141,6 +141,7 @@ INSTALLED_APPS = (
 APPEND_SLASH = False
 CMS_TEMPLATES = (
     ('base.html', 'Base'),
+    ('main.html', 'Main'),
     ('pycon.html', 'PyCon'),
 )
 
