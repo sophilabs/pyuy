@@ -1,0 +1,15 @@
+
+header .logo .icon {
+    height: 126px;
+    width: 97px;
+}
+
+header .logo .icon img {
+    width: 77px;
+    height: 106px;
+    margin: 10px;
+}
+
+header .logo .text {
+    margin-left: 97px;
+}
