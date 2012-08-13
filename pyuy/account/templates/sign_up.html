@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load url from future %}
+{% load static from staticfiles %}
+
+{% block meta_title %}{% trans "Sign Up" %} - {{ block.super }}{% endblock %}
+{% block meta_description %}{% trans "Sign Up" %}{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<div class="page-header">
+    <h1>{% trans "Sign Up" %}</h1>
+</div>
+<div class="row">
+    <div class="span8">
+        <form method="post" class="well form-horizontal">
+            <fieldset>
+                {% csrf_token %}
+                <div>
+                    {{ form.username.errors }}
+                    <label>Email:</label>
+                    {{ form.username }}
+                </div>
+                <div>
+                    {{ form.password1.errors }}
+                    <label>Password:</label>
+                    {{ form.password1 }}
+                </div>
+                <div>
+                    {{ form.password2.errors }}
+                    <label>Password confirmation:</label>
+                    {{ form.password2 }}
+                </div>
+                <div class="form-actions">
+                    <input type="submit" value="Sign Up" class="btn btn-primary" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
