@@ -143,10 +143,6 @@ CMS_TEMPLATES = (
     ('base.html', 'Base'),
     ('main.html', 'Main'),
     ('pycon.html', 'PyCon'),
-    #('cmsplugin_blog/base_pycon_extended.html', 'Base PyCon'),
-    #('cmsplugin_blog/profile_extended.html', 'Profile'),
-    #('cmsplugin_blog/cmsplugin_blog_base.html','cmsplugin_blog'),
-    #('cmsplugin_blog/entry_detail.html','cmsplugin_blog_detail'),
 )
 
 LANGUAGES = (

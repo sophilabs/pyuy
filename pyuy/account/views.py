@@ -26,11 +26,20 @@ def profile(request):
     return render_to_response('profile.html', {'form' : form}, context_instance=RequestContext(request))
 
 def sign_up(request):
-    pass #TODO: santiago
+    if request.method == 'POST':
+        form = forms.UserCreateForm(request.POST)
+        if form.is_valid():
+            form.instance.username = form.cleaned_data['username']
+            form.instance.password = form.cleaned_data['password1']
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Account created successfully.')
+    else:
+        form = forms.UserCreateForm()
+    return render_to_response('sign_up.html',{'form' : form}, context_instance=RequestContext(request))
 
 def sign_in(request):
     return aviews.login(request,
-        template_name="login.html",
+        template_name="sign_in.html",
         authentication_form=forms.AuthenticationForm)
 
 def sign_out(request):
@@ -64,7 +73,7 @@ def password_reset_confirm_done(request):
 
 def password_change(request):
     return aviews.password_change(request,
-        template_name='password_change.html',
+        template_name='password_change_form.html',
         post_change_redirect=reverse('account:password_change_done'),
         password_change_form=forms.PasswordChangeForm)
 

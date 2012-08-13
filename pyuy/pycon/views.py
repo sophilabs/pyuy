@@ -60,7 +60,7 @@ def proposal_add(request):
 
     return render_to_response('proposal_add.html', {
         'formP':formP, 'formS':formS
-        }, RequestContext(request))
+        }, context_instance=RequestContext(request))
 
 def proposal_sent(request):
     return render_to_response('proposal_sent.html', context_instance=RequestContext(request))

@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 {% load cms_tags %}
-{%block title %}Proposal sent correctly{% endblock %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block meta_title %}{% trans "Proposal sent correctly" %} - {{ block.super }}{% endblock %}
+{% block meta_description %}{% trans "Proposal sent correctly" %}{% endblock %}
+
 {% block menu %}
 {% show_placeholder "menu" "home" %}
 {% endblock %}
+
 {% block content %}
-        <a href="/proposal_add">Send another proposal.</a>
+<div class="page-header">
+    <h1>{% trans "Proposal sent correctly" %}</h1>
+</div>
+<div class="row">
+    <div class="span8">
+        <a href="pycon:proposal_add">Send another proposal.</a>
+    </div>
+</div>
 {% endblock %}
