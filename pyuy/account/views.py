@@ -15,56 +15,25 @@ def profile(request):
     if request.method == 'POST':
         form = forms.ProfileForm(request.POST, instance=request.user)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-
-            user = request.user
-            user.username = username
-            user.email = username
+            form.instance.username = form.cleaned_data['username']
+            form.instance.first_name = form.cleaned_data['first_name']
+            form.instance.last_name = form.cleaned_data['last_name']
+            form.save()
             messages.add_message(request, messages.SUCCESS, 'Profile updated successfully.')
-            user.first_name=first_name
-            user.last_name=last_name
-            user.save()
-
             return HttpResponseRedirect('')
     else:
-        form = ProfileForm(instance=request.user)
+        form = forms.ProfileForm(instance=request.user)
     return render_to_response('profile.html', {'form' : form}, context_instance=RequestContext(request))
-#    if request.method == "POST":
-#        form = forms.ProfileForm(request.POST)
-#        if form.is_valid():
-#            user = request.user
-#            user.first_name = form.cleaned_data['first_name']
-#            user.last_name = form.cleaned_data['last_name']
-#            user.username = form.cleaned_data['email']
-#            user.email = form.cleaned_data['email']
-#            user.save()
-#            user.profile.imdb_url = form.cleaned_data['imdb_url']
-#            user.profile.reel_url = form.cleaned_data['reel_url']
-#            user.profile.save()
-#            if user.pitch_set.count() == 0:
-#                return HttpResponseRedirect(reverse("filmmakers:pitch"))
-#            else:
-#                messages.add_message(request, messages.INFO, "Profile Saved")
-#    else:
-#        form = forms.ProfileForm()
-#        form.initial['first_name'] = request.user.first_name
-#        form.initial['last_name'] = request.user.last_name
-#        form.initial['email'] = request.user.email
-#        form.initial['imdb_url'] = request.user.profile.imdb_url
-#        form.initial['reel_url'] = request.user.profile.reel_url
-#    return render_to_response(
-#        "profile.html",
-#            { 'form': form },
-#        context_instance=RequestContext(request))
 
-def login(request):
+def sign_up(request):
+    pass #TODO: santiago
+
+def sign_in(request):
     return aviews.login(request,
         template_name="login.html",
         authentication_form=forms.AuthenticationForm)
 
-def logout(request):
+def sign_out(request):
     return aviews.logout(request, next_page=reverse('main:index'))
 
 def password_reset(request):

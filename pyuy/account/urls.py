@@ -2,8 +2,9 @@ from django.conf.urls import *
 
 urlpatterns = patterns('account.views',
 
-    url(r"^sign-in$", 'login', name="sign_in"),
-    url(r"^sign-out$", 'logout', name="sign_out"),
+    url(r"^sign-up$", 'sign_up', name="sign_up"),
+    url(r"^sign-in$", 'sign_in', name="sign_in"),
+    url(r"^sign-out$", 'sign_out', name="sign_out"),
     url(r"^password-change$", 'password_change', name="password_change"),
     url(r"^password-change$/done$", 'password_change_done', name="password_change_done"),
     url(r"^password-reset$", 'password_reset', name="password_reset"),
