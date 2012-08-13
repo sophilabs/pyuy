@@ -41,7 +41,7 @@ def proposal_add(request):
             additional_notes = formP.cleaned_data['additional_notes']
             extreme =  formP.cleaned_data['extreme']
             duration =  formP.cleaned_data['duration']
-            additional_speakers = formP.cleaned_data['additional_speakers']
+            #additional_speakers = formP.cleaned_data['additional_speakers']
             submitted = datetime.datetime.now()
 
             proposal = Proposal.objects.create(title=title, description=description, kind=kind, category=category, abstract=abstract, audience_level=audience_level, additional_notes=additional_notes, extreme=extreme, duration=duration, speaker=speaker, submitted=submitted, cancelled=False)

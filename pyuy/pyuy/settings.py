@@ -123,8 +123,8 @@ INSTALLED_APPS = (
     'cms.plugins.text',
     #'cms.plugins.video',
     #'cms.plugins.twitter',
-    #'djangocms_utils',
-    #'missing',
+    'djangocms_utils',
+    'missing',
 
     #others
     'bootstrap',
@@ -157,9 +157,9 @@ MARKITUP_SKIN = "markitup/skins/simple"
 MARKITUP_FILTER = ["markdown.markdown", {}]
 MARKITUP_MEDIA_URL = STATIC_URL
 
-JQUERY_JS = None
-JQUERY_UI_JS = None
-JQUERY_UI_CSS = None
+JQUERY_JS = '/static/jquery/js/jquery.js'
+JQUERY_UI_JS = '/static/jquery/js/jquery-ui.js'
+JQUERY_UI_CSS = '/static/jquery/css/jquery-ui.css'
 CMSPLUGIN_BLOG_PLACEHOLDERS = ('text',)
 
 LOGGING = {

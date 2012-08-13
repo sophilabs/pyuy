@@ -4,10 +4,12 @@ from symposion.speakers.models import Speaker
 from bootstrap.forms import BootstrapForm
 
 class SpeakerForm(BootstrapForm):
+
     biography = forms.CharField(widget=forms.Textarea)
     annotation = forms.CharField(widget=forms.Textarea)
 
 class ProposalForm(BootstrapForm):
+
     title = forms.CharField(max_length=100)
     description = forms.CharField(widget=forms.Textarea)
     kind = forms.ModelChoiceField(PresentationKind.objects.all().order_by('name'))
@@ -17,4 +19,4 @@ class ProposalForm(BootstrapForm):
     additional_notes = forms.CharField(widget=forms.Textarea(), required=False)
     extreme = forms.BooleanField(required=False)
     duration = forms.ChoiceField(choices=Proposal.DURATION_CHOICES)
-    additional_speakers = forms.ModelChoiceField(Speaker.objects.all().order_by('name'), required=False)
+    #additional_speakers = forms.ModelChoiceField(Speaker.objects.all().order_by('name'), required=False)

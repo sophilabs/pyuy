@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'pycon.html' %}
+
 {% load cms_tags %}
 
 {% load i18n %}
@@ -6,10 +7,6 @@
 
 {% block meta_title %}{% trans "Proposal sent correctly" %} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% trans "Proposal sent correctly" %}{% endblock %}
-
-{% block menu %}
-{% show_placeholder "menu" "home" %}
-{% endblock %}
 
 {% block content %}
 <div class="page-header">
