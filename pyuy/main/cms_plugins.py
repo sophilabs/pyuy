@@ -15,8 +15,12 @@ class Menu(CMSPluginBase):
             link = instance.page.get_absolute_url()
         else:
             link = ""
+        user = context.get('user')
+        show = instance.condition == 'B' or \
+            (instance.condition == 'A' and user.is_authenticated()) or \
+            (instance.condition == 'U' and not user.is_authenticated())
         context.update({
-            'show': True,
+            'show': show,
             'title': instance.title,
             'link': link,
             'class': instance.css_class,

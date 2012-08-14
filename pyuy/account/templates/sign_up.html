@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "main.html" %}
 
 {% load i18n %}
 {% load url from future %}
@@ -17,21 +17,7 @@
         <form method="post" class="well form-horizontal">
             <fieldset>
                 {% csrf_token %}
-                <div>
-                    {{ form.username.errors }}
-                    <label>Email:</label>
-                    {{ form.username }}
-                </div>
-                <div>
-                    {{ form.password1.errors }}
-                    <label>Password:</label>
-                    {{ form.password1 }}
-                </div>
-                <div>
-                    {{ form.password2.errors }}
-                    <label>Password confirmation:</label>
-                    {{ form.password2 }}
-                </div>
+                {{ form }}
                 <div class="form-actions">
                     <input type="submit" value="Sign Up" class="btn btn-primary" />
                 </div>

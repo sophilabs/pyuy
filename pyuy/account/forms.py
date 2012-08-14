@@ -1,6 +1,5 @@
 from django.contrib.auth import forms as aforms
 from bootstrap.forms import BootstrapMixin, BootstrapModelForm
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
@@ -19,8 +18,13 @@ class SetPasswordForm(BootstrapMixin, aforms.SetPasswordForm):
 class PasswordChangeForm(BootstrapMixin, aforms.PasswordChangeForm):
     pass
 
-class UserCreateForm(UserCreationForm):
+class UserCreationForm(BootstrapMixin, aforms.UserCreationForm):
+
     username = forms.EmailField(required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = "E-mail"
 
     class Meta:
         model = User

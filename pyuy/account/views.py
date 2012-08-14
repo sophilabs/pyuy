@@ -27,14 +27,15 @@ def profile(request):
 
 def sign_up(request):
     if request.method == 'POST':
-        form = forms.UserCreateForm(request.POST)
+        form = forms.UserCreationForm(request.POST)
         if form.is_valid():
             form.instance.username = form.cleaned_data['username']
             form.instance.password = form.cleaned_data['password1']
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Account created successfully.')
+            return HttpResponseRedirect(reverse('account:profile'))
     else:
-        form = forms.UserCreateForm()
+        form = forms.UserCreationForm()
     return render_to_response('sign_up.html',{'form' : form}, context_instance=RequestContext(request))
 
 def sign_in(request):

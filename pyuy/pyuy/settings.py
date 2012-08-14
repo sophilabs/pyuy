@@ -187,6 +187,10 @@ LOGGING = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+LOGIN_URL = '/account/sign-in'
+LOGOUT_URL = '/account/sign-out'
+LOGIN_REDIRECT_URL = '/account/profile'
+LOGIN_ERROR_URL = '/'
 
 try:
     from settings_local import *
