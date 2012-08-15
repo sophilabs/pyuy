@@ -1,20 +1,95 @@
+body {
+    font-family: MyriadPro Regular;
+}
 
 header .logo .icon {
     height: 126px;
     width: 97px;
 }
 
-header .logo .icon img {
+.logo .icon img {
     width: 77px;
     height: 106px;
     margin: 10px;
 }
 
-header .logo .text {
+.logo .text {
     margin-left: 97px;
+}
+
+header {
+    position: relative;
+    height: 300px;
+    background: blue;
+    top:0;
+}
+
+.clean {
+
 }
 
 .form-horizontal textarea {
     height: 60px;
     width: 80%;
+}
+
+.row {
+    margin-top: 40px;
+}
+
+.box-red {
+    background-color: #ffa58b;
+    padding: 10px;
+}
+
+.box-blue {
+    background-color: #b8c6ff;
+    padding: 10px;
+}
+
+small {
+    margin-left: 10px;
+}
+
+.menu-boton {
+    color: white;
+    background-color: transparent;
+}
+
+.boton {
+    margin-top: -15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.boton:hover, .boton:visited, .boton:link {
+    text-decoration: none;
+    color: white;
+}
+
+.boton-red {
+    background-color: #ff7736;
+}
+.boton-red:hover {
+    background-color: #ff5100;
+}
+
+.boton-blue {
+    background-color: #3247ff;
+}
+.boton-blue:hover {
+    background-color: #0014ff;
+}
+
+footer {
+    height: 60px;
+    background-color: #0014ff;
+    color: white;
+}
+
+.dropdown-toggle {
+    color: white;
+    background: transparent;
 }

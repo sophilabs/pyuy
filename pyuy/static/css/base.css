@@ -1,7 +1,3 @@
-body {
-
-}
-
 header {
     top: 60px;
     left: 0;
@@ -67,7 +63,6 @@ header ul li a {
     background: rgba(250, 250, 250, 0.8);
     padding: 6px 10px 6px 30px;
     display: inline-block;
-    text-transform: uppercase;
     color: rgba(128, 207, 240, 1);
 }
 
