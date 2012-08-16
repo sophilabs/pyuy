@@ -1,0 +1,50 @@
+{% extends 'pycon.html' %}
+
+{% block meta_title %}{% trans 'Home' %} - {{ block.super }}{% endblock %}
+{% block meta_description %}{% trans 'PyCon Home' %}{% endblock %}
+
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="span6 pull-left">
+            <h1>{% trans 'About' %}<small>{% trans 'What is PyCon Uruguay?' %}</small></h1>
+            <p class="box-text">Icing dragée topping brownie jelly. Muffin lollipop pastry. Candy canes lollipop caramels candy canes topping halvah wafer chocolate. Bonbon macaroon pastry. Chupa chups ice cream soufflé dessert sugar plum jelly beans gingerbread gummi bears brownie. Applicake dessert chocolate bar biscuit.</p>
+            <a href="#" class="boton boton-red">{% trans 'Go to Schedule' %}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6 pull-left">
+            <h1>{% trans 'When' %}<small>{% trans 'Wich appointments should I cancel?' %}</small></h1>
+            <p class="box-text box-red">Jelly liquorice carrot cake. Jujubes chocolate cake candy canes toffee liquorice ice cream icing. Donut candy canes pie icing brownie. Chocolate bar candy.</p>
+            <a href="#" class="boton boton-red pull-right">{% trans 'Schedule it' %}</a>
+        </div>
+        <div class="span6 pull-left">
+            <h1>{% trans 'Where' %}<small>{% trans 'Take me there!' %}</small></h1>
+
+            <p class="box-text box-blue">Jujubes chocolate cake candy canes toffee liquorice ice cream icing. Donut candy canes pie icing brownie. Chocolate bar candy canes chocolate. Lollipop liquorice gingerbread sweet roll carrot cake apple pie sesame snaps. Cookie sweet toffee sweet cupcake cheesecake. Cheesecake candy chupa chups chocolate bar danish tart tart. Jelly liquorice carrot cake.</p>
+
+            <a href="#" class="boton boton-blue pull-right">{% trans 'Register now' %}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 pull-left">
+            <h1>{% trans 'Sponsors' %}<small>{% trans 'Which important companies are behind this?' %}</small></h1>
+            <div class="container">
+                <div class="row">
+                    <div class="span2">
+                        Sponsors
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block content %}

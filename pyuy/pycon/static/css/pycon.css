@@ -1,16 +1,32 @@
 body {
-    font-family: MyriadPro Regular;
+    font-family: MyriadPro Regular, sans-serif;
 }
 
 header .logo .icon {
     height: 126px;
     width: 97px;
+    left: 0;
+}
+
+.flexslider {
+    min-width: 940px;
+    height: 540px;
+}
+.flexslider .slides img {
+    height: 540px;
+}
+.menu-box {
+    width: 940px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    margin-left: -470px;
 }
 
 .logo .icon img {
     width: 77px;
     height: 106px;
-    margin: 10px;
+    left:0px;
 }
 
 .logo .text {
@@ -19,13 +35,8 @@ header .logo .icon {
 
 header {
     position: relative;
-    height: 300px;
-    background: blue;
     top:0;
-}
-
-.clean {
-
+    width: auto;
 }
 
 .form-horizontal textarea {
@@ -39,11 +50,12 @@ header {
 
 .box-red {
     background-color: #ffa58b;
-    padding: 10px;
 }
 
 .box-blue {
     background-color: #b8c6ff;
+}
+.box-text {
     padding: 10px;
 }
 
@@ -57,7 +69,7 @@ small {
 }
 
 .boton {
-    margin-top: -15px;
+    margin-top: -20px;
     margin-right: 10px;
     margin-left: 10px;
     padding: 5px;
@@ -84,12 +96,53 @@ small {
 }
 
 footer {
+    min-width: 940px;
+    width: 100%;
     height: 60px;
     background-color: #0014ff;
     color: white;
+    margin: 30px 0 0 0;
 }
 
-.dropdown-toggle {
-    color: white;
-    background: transparent;
+ul li ul {
+    position: absolute;
+    display: none;
+
+}
+ul li:hover ul {
+    display: block;
+    padding: 0;
+    background-color: white;
+}
+ul li:hover {
+    background-color: white;
+}
+
+.menu {
+    color: #5173ff;
+    background: transparent url("../img/small-down-arrow-active.png") no-repeat right;
+    margin: 0;
+    padding: 10px 25px 10px 10px;
+}
+.menu:hover {
+    color: #5173ff;
+    padding: 10px 25px 10px 10px;
+    margin: 0;
+    background: transparent url("../img/small-down-arrow-active.png") no-repeat right;
+}
+.sub_menu {
+    color: #7f7891;
+    background-color: white;
+    width: 100%;
+    padding: 5px 5px 5px 5px;
+    margin:0;
+    border: 0;
+}
+.sub_menu:hover {
+    background-color: #b8c6ff;
+    padding: 5px 5px 5px 5px;
+    margin:0;
+    border: 0;
+    width: 100%;
+    color: #5173ff;
 }

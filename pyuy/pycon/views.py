@@ -7,9 +7,10 @@ from symposion.speakers.models import Speaker
 from symposion.proposals.models import Proposal
 from django.template import RequestContext
 from pycon.forms import SpeakerForm, ProposalForm
+from django.core.urlresolvers import reverse
 
 def index(request):
-    return render_to_response('index.html', context_instance=RequestContext(request))
+    return render_to_response(reverse('pycon:index'), context_instance=RequestContext(request))
 
 @login_required
 def proposal_add(request):

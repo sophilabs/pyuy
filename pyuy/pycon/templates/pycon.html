@@ -14,7 +14,6 @@
     <meta name="description" content="{% block meta_description %}PyCon Uruguay{% endblock %}">
     <meta name="author" content="PyCon">
 
-
 {% block css %}
     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'jquery/css/jquery-ui.css' %}" rel="stylesheet">
@@ -22,15 +21,28 @@
     <link href="{% static 'css/background.css' %}" rel="stylesheet">
     <link href="{% static 'css/pycon.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=MyriadPro+Regular">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css">
     {% endblock %}
 {% render_block "css" %}
-
 </head>
 <body class="{% block class %}{% endblock %}">
-{% include "background.html" %}
 {% cms_toolbar %}
 <header>
-    <div class="container">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="{% static 'img/colonia_1.gif' %}" />
+            </li>
+            <li>
+                <img src="{% static 'img/edificio.gif' %}" />
+            </li>
+            <li>
+                <img src="{% static 'img/faro.gif' %}" />
+            </li>
+        </ul>
+    </div>
+    <div class="menu-box">
         <div class="row">
             <div class="span4">
                 {% block logo %}
@@ -44,50 +56,53 @@
             </div>
             <div class="span8 pull-right">
                 <ul>
-                    <li class="dropdown pull-left">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans 'About' %}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">{% trans 'About menu 1' %}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">{% trans 'About menu 2' %}</a></li>
+                    <li class="pull-left">
+                        <a class="menu" href="#">{% trans 'About' %}</a>
+                        <ul>
+                            <li><a class="sub_menu" href="#">{% trans 'About menu 1' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'About menu 2' %}</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown pull-left">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans 'Registration' %}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                    <li class="pull-left">
+                        <a class="menu" href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
+                        <ul>
                             {% if user.is_authenticated %}
-                                <li><a href="{% url 'account:sign_out' %}">{% trans 'Sign Out' %}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{% url 'account:profile' %}">{% trans 'Profile' %}</a></li>
+                                <li><a class="sub_menu" href="{% url 'account:sign_out' %}">{% trans 'Sign Out' %}</a></li>
+                                <li><a class="sub_menu" href="{% url 'account:profile' %}">{% trans 'Profile' %}</a></li>
                             {% else %}
-                                <li><a href="{% url 'account:sign_up' %}">{% trans 'Sign Up' %}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{% url 'account:sign_in' %}">{% trans 'Sign In' %}</a></li>
+                                <li><a class="sub_menu" href="{% url 'account:sign_up' %}">{% trans 'Sign Up' %}</a></li>
+                                <li><a class="sub_menu" href="{% url 'account:sign_in' %}">{% trans 'Sign In' %}</a></li>
                             {% endif %}
                         </ul>
                     </li>
-                    <li class="dropdown pull-left">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans 'Schedule' %}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{% url 'pycon:proposal_add' %}">{% trans 'Send porposal' %}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">{% trans 'Schedule menu 2' %}</a></li>
+                    <li class="pull-left">
+                        <a class="menu"href="#">{% trans 'Schedule' %}</a>
+                        <ul>
+                            <li><a class="sub_menu" href="#">{% trans 'Conference Schedule' %}</a></li>
+                            <li><a class="sub_menu" href="{% url 'pycon:proposal_add' %}">{% trans 'Send porposal' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Open Spaces' %}</a></li>
+
                         </ul>
                     </li>
-                    <li class="dropdown pull-left">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans 'Sponsors' %}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">{% trans 'Sponsors menu 1' %}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">{% trans 'Sponsors menu 2' %}</a></li>
+                    <li class="pull-left">
+                        <a class="menu" href="#">{% trans 'Sponsors' %}</a>
+                        <ul>
+                            <li><a class="sub_menu" href="#">{% trans 'About PyCon Sponsors' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Sponsor Prospetecus' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'PyCon Jobs Fair' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Sponsor Sign Up' %}</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown pull-left">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% trans 'Venue' %}<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">{% trans 'Venue menu 1' %}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">{% trans 'Venue menu 2' %}</a></li>
+                    <li class="pull-left">
+                        <a class="menu"href="#">{% trans 'Venue' %}</a>
+                        <ul>
+                            <li><a class="sub_menu" href="#">{% trans 'The Place' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Bars' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Explore Uruguay' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Restaurants' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Shopping' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Traveling' %}</a></li>
+                            <li><a class="sub_menu" href="#">{% trans 'Weather' %}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,43 +110,7 @@
         </div>
     </div>
 </header>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-<div class="container">
-    <div class="row">
-        <div class="span6 pull-left">
-            <h1>{% trans 'About' %}<small>{% trans 'What is PyCon Uruguay?' %}</small></h1>
-            <p class="box-text">Icing dragée topping brownie jelly. Muffin lollipop pastry. Candy canes lollipop caramels candy canes topping halvah wafer chocolate. Bonbon macaroon pastry. Chupa chups ice cream soufflé dessert sugar plum jelly beans gingerbread gummi bears brownie. Applicake dessert chocolate bar biscuit.</p>
-            <a href="#" class="boton boton-red">{% trans 'Go to Schedule' %}</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span6 pull-left">
-                <h1>{% trans 'When' %}<small>{% trans 'Wich appointments should I cancel?' %}</small></h1>
-            <div class="box-red">
-                <p class="box-text">Jelly liquorice carrot cake.</p>
-            </div>
-            <a href="#" class="boton boton-red pull-right">{% trans 'Schedule it' %}</a>
-        </div>
-        <div class="span6 pull-left">
-            <h1>{% trans 'Where' %}<small>{% trans 'Take me there!' %}</small></h1>
-            <div class="box-blue">
-                <p class="box-text">Jujubes chocolate cake candy canes toffee liquorice ice cream icing. Donut candy canes pie icing brownie. Chocolate bar candy canes chocolate. Lollipop liquorice gingerbread sweet roll carrot cake apple pie sesame snaps. Cookie sweet toffee sweet cupcake cheesecake. Cheesecake candy chupa chups chocolate bar danish tart tart. Jelly liquorice carrot cake.</p>
-            </div>
-            <a href="#" class="boton boton-blue pull-right">{% trans 'Register now' %}</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12 pull-left">
-            <h1>{% trans 'Sponsors' %}<small>{% trans 'Which important companies are behind this?' %}</small></h1>
-        </div>
-    </div>
-</div>
+{% block content %}{% endblock %}
 <footer>
     <div class="container">
         <p class="pull-right"><a class="boton" href="#">{% trans 'Back to top' %}</a></p>
@@ -149,6 +128,12 @@
 <script src="{% static 'jquery/js/jquery.js' %}"></script>
 <script src="{% static 'jquery/js/jquery-ui.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+<script type="text/javascript" charset="utf-8">
+    $(window).load(function() {
+        $('.flexslider').flexslider();
+    });
+</script>
 {% endblock %}
 {% render_block "js" %}
 </body>

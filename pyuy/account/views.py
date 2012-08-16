@@ -2,12 +2,9 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 import forms
-from django.contrib.auth.models import User
-from django.contrib import auth
 from django.contrib.auth import views as aviews
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-import re
 from django.contrib import messages
 
 @login_required
