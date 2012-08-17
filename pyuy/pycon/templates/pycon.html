@@ -17,11 +17,10 @@
 {% block css %}
     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'jquery/css/jquery-ui.css' %}" rel="stylesheet">
-    <link href="{% static 'css/base.css' %}" rel="stylesheet">
     <link href="{% static 'css/background.css' %}" rel="stylesheet">
     <link href="{% static 'css/pycon.css' %}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=MyriadPro+Regular">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Homemade+Apple">
     <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css">
     {% endblock %}
 {% render_block "css" %}
@@ -32,13 +31,13 @@
     <div class="flexslider">
         <ul class="slides">
             <li>
-                <img src="{% static 'img/colonia_1.gif' %}" />
+                <img src="../../media/backgrounds/106951366_efec8c3d8e_z.jpg" />
             </li>
             <li>
-                <img src="{% static 'img/edificio.gif' %}" />
+                <img src="../../media/backgrounds/3388792864_0a23c5d819_o.jpg" />
             </li>
             <li>
-                <img src="{% static 'img/faro.gif' %}" />
+                <img src="../../media/backgrounds/5526642192_44bdfc249a_o.jpg" />
             </li>
         </ul>
     </div>
@@ -48,23 +47,18 @@
                 {% block logo %}
                 <a class="logo" href="/pycon">
                     <span class="icon"><img src="{% static 'img/pycon-logo.png' %}" /></span>
-                    <span class="text">PyCon</span>
-                    <span class="text">Uruguay</span>
-                    <span class="text">2012</span>
+                    <span class="text">PyCon 2012</span>
+                    <span class="text-italic">Uruguay</span>
                 </a>
                 {% endblock %}
             </div>
             <div class="span8 pull-right">
                 <ul>
-                    <li class="pull-left">
-                        <a class="menu" href="#">{% trans 'About' %}</a>
-                        <ul>
-                            <li><a class="sub_menu" href="#">{% trans 'About menu 1' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'About menu 2' %}</a></li>
-                        </ul>
+                    <li class="menu-normal pull-left">
+                        <a href="{% url 'pycon:index' %}">{% trans 'About' %}</a>
                     </li>
-                    <li class="pull-left">
-                        <a class="menu" href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
+                    <li class="menu pull-left">
+                        <a href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
                         <ul>
                             {% if user.is_authenticated %}
                                 <li><a class="sub_menu" href="{% url 'account:sign_out' %}">{% trans 'Sign Out' %}</a></li>
@@ -75,34 +69,23 @@
                             {% endif %}
                         </ul>
                     </li>
-                    <li class="pull-left">
-                        <a class="menu"href="#">{% trans 'Schedule' %}</a>
+                    <li class="menu pull-left">
+                        <a href="#">{% trans 'Schedule' %}</a>
                         <ul>
-                            <li><a class="sub_menu" href="#">{% trans 'Conference Schedule' %}</a></li>
+                            <li><a class="sub_menu" href="{% url 'pycon:index' %}">{% trans 'Conference Schedule' %}</a></li>
                             <li><a class="sub_menu" href="{% url 'pycon:proposal_add' %}">{% trans 'Send porposal' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Open Spaces' %}</a></li>
-
                         </ul>
                     </li>
-                    <li class="pull-left">
-                        <a class="menu" href="#">{% trans 'Sponsors' %}</a>
+                    <li class="menu pull-left">
+                        <a href="#">{% trans 'Sponsors' %}</a>
                         <ul>
-                            <li><a class="sub_menu" href="#">{% trans 'About PyCon Sponsors' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Sponsor Prospetecus' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'PyCon Jobs Fair' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Sponsor Sign Up' %}</a></li>
+                            <li><a class="sub_menu" href="{% url 'pycon:sign_sponsor' %}">{% trans 'Sponsor Sign Up' %}</a></li>
                         </ul>
                     </li>
-                    <li class="pull-left">
-                        <a class="menu"href="#">{% trans 'Venue' %}</a>
+                    <li class="menu pull-left">
+                        <a href="#">{% trans 'Venue' %}</a>
                         <ul>
-                            <li><a class="sub_menu" href="#">{% trans 'The Place' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Bars' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Explore Uruguay' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Restaurants' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Shopping' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Traveling' %}</a></li>
-                            <li><a class="sub_menu" href="#">{% trans 'Weather' %}</a></li>
+                            <li><a class="sub_menu" href="{% url 'pycon:index' %}">{% trans 'The Place' %}</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -110,17 +93,19 @@
         </div>
     </div>
 </header>
-{% block content %}{% endblock %}
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
 <footer>
     <div class="container">
-        <p class="pull-right"><a class="boton" href="#">{% trans 'Back to top' %}</a></p>
-        <p class="pull-right"><a class="boton" href="#">{% trans 'About' %}</a></p>
-        <p class="pull-right"><a class="boton" href="#">{% trans 'Registration' %}</a></p>
-        <p class="pull-right"><a class="boton" href="#">{% trans 'Schedule' %}</a></p>
-        <p class="pull-right"><a class="boton" href="#">{% trans 'Sponsors' %}</a></p>
-        <p class="pull-right"><a class="boton" href="#">{% trans 'Venue' %}</a></p>
+        <p class="pull-right"><a href="#">{% trans 'Back to top' %}</a></p>
+        <p class="pull-right"><a href="index">{% trans 'About' %}</a></p>
+        <p class="pull-right"><a href="sign_up">{% trans 'Registration' %}</a></p>
+        <p class="pull-right"><a href="index">{% trans 'Schedule' %}</a></p>
+        <p class="pull-right"><a href="#">{% trans 'Sponsors' %}</a></p>
+        <p class="pull-right"><a href="#">{% trans 'Venue' %}</a></p>
         {% block footer %}
-        <p>PyCon Uruguay Copyright 2012. All rights reserved.</p>
+        <p class="rights">PyCon Uruguay Copyright © 2012. All rights reserved.</p>
         {% endblock %}
     </div>
 </footer>

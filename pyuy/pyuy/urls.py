@@ -16,14 +16,14 @@ if settings.DEBUG:
 
 urlpatterns += patterns('',
     url(r'', include('main.urls', namespace='main')),
-    url(r'^pycon/', include('pycon.urls', namespace="pycon")),
-    url(r'^speaker/', include('symposion.speakers.urls')),
-    url(r'^proposal/', include('symposion.proposals.urls')),
-    url(r'^review/', include('symposion.review.urls')),
-    url(r'^sponsors/', include('symposion.sponsors_pro.urls')),
-    url(r'^schedule/', include('symposion.schedule.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^account/', include('account.urls', namespace='account')),
+    url(r'^pycon', include('pycon.urls', namespace='pycon')),
+    url(r'^speaker', include('symposion.speakers.urls')),
+    url(r'^proposal', include('symposion.proposals.urls')),
+    url(r'^review', include('symposion.review.urls')),
+    url(r'^sponsors', include('symposion.sponsors_pro.urls')),
+    url(r'^schedule', include('symposion.schedule.urls')),
+    url(r'^admin', include(admin.site.urls)),
+    url(r'^account', include('account.urls', namespace='account')),
     url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {
         'sitemaps': {
             'cmspages': CMSSitemap,

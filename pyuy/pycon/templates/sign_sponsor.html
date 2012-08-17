@@ -1,0 +1,27 @@
+{% extends "pycon.html" %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block meta_title %}{% trans "Sign Sponsor" %} - {{ block.super }}{% endblock %}
+{% block meta_description %}{% trans "Sign Sponsor" %}{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+    <h1>Sign Sponsor</h1>
+</div>
+<div class="row">
+    <div class="span8">
+        <form method="post" class="well form-horizontal">
+            <fieldset>
+                {% csrf_token %}
+                {{ form }}
+                <div class="form-actions">
+                    <input type="submit" value="{% trans 'Save' %}" class="btn btn-primary" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

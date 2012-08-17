@@ -2,7 +2,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 import forms
-from django.contrib.auth import views as aviews
+from django.contrib.auth import views as aviews, authenticate
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -30,6 +30,7 @@ def sign_up(request):
             form.instance.password = form.cleaned_data['password1']
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Account created successfully.')
+            authenticate(username=form.instance.username, password=form.instance.password)
             return HttpResponseRedirect(reverse('account:profile'))
     else:
         form = forms.UserCreationForm()
@@ -41,7 +42,7 @@ def sign_in(request):
         authentication_form=forms.AuthenticationForm)
 
 def sign_out(request):
-    return aviews.logout(request, next_page=reverse('main:index'))
+    return aviews.logout(request, next_page=reverse('pycon:index'))
 
 def password_reset(request):
     return aviews.password_reset(request, is_admin_site=False,
