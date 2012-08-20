@@ -4,6 +4,5 @@ urlpatterns = patterns('pycon.views',
     url(r"^$", 'index', name='index'),
     url(r"^/proposal$", 'proposal_add', name='proposal_add'),
     url(r"^/proposal-sent$", 'proposal_sent', name='proposal_sent'),
-    url(r"^/sign_sponsor$", 'sign_sponsor', name='sign_sponsor'),
 )
 

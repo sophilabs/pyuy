@@ -47,13 +47,17 @@
         <div class="span12 pull-left">
             <h1 class="box-title">{% trans 'Sponsors' %}<small class="small">{% trans 'Which important companies are behind this?' %}</small></h1>
             <div class="container">
-                <div class="row">
-                    <div class="span2">
-                        {% for Sponsor in sponsor_list %}
-                        {{ Sponsor }}
-                        {% endfor %}
-                    </div>
+                {% regroup sponsor_list|dictsort:"level" by level as sponsors_ordered %}
+                {% for sponsor in sponsors_ordered %}
+                {% if forloop.first %}<div class="row">{% endif %}
+                <div class="span2">
+                {{ sponsor }}
                 </div>
+                {% if forloop.counter|divisibleby:6 %}
+                </div><div class="row">
+                {% endif %}
+                {% if forloop.last %}</div>{% endif %}
+                    {% endfor %}
             </div>
         </div>
     </div>

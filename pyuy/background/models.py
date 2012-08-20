@@ -14,4 +14,4 @@ class Background(models.Model):
     longitude = models.DecimalField(decimal_places=6, max_digits=8)
 
     def __unicode__(self):
-        return self.name
+        return self.title

@@ -11,7 +11,7 @@ from symposion.sponsors_pro.models import Sponsor
 from pycon.forms import SpeakerForm, ProposalForm
 
 def index(request):
-    return render_to_response('pycon_index.html',{'sponsor_list':Sponsor.objects.all()}, context_instance=RequestContext(request))
+    return render_to_response('pycon_index.html',{'sponsor_list':Sponsor.objects.order_by('name')}, context_instance=RequestContext(request))
 
 @login_required
 def proposal_add(request):
@@ -66,6 +66,3 @@ def proposal_add(request):
 
 def proposal_sent(request):
     return render_to_response('proposal_sent.html', context_instance=RequestContext(request))
-
-def sign_sponsor(request):
-    return render_to_response('sign_sponsor.html', context_instance=RequestContext(request))
