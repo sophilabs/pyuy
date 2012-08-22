@@ -11,9 +11,9 @@ from pycon2012.forms import SpeakerForm, ProposalForm
 
 def index(request):
     return render_to_response('pycon2012_index.html',
-        {
-            'sponsor_list':Sponsor.objects.order_by('name'),
-        }, context_instance=RequestContext(request))
+    {
+        'sponsor_list':Sponsor.objects.order_by('level'),
+    }, context_instance=RequestContext(request))
 
 @login_required
 def proposal_add(request):
