@@ -1,6 +1,13 @@
 from django.conf import settings
 from django import template
+from background.models import Background
+
 register = template.Library()
+
+@register.simple_tag(takes_context=True)
+def backgrounds(context, tag):
+    context['backgrounds'] = Background.objects.filter(language=context['request'].LANGUAGE_CODE, tag=tag).order_by('?')
+    return ''
 
 @register.simple_tag
 def background_map_image(background, width, height):

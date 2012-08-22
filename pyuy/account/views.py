@@ -42,7 +42,7 @@ def sign_in(request):
         authentication_form=forms.AuthenticationForm)
 
 def sign_out(request):
-    return aviews.logout(request, next_page=reverse('pycon:index'))
+    return aviews.logout(request, next_page=reverse('main:index'))
 
 def password_reset(request):
     return aviews.password_reset(request, is_admin_site=False,

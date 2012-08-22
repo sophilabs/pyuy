@@ -18,10 +18,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pyuy',
-        'USER': 'sl',
-        'PASSWORD': 'sl',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite.db',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -84,7 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
     'django.contrib.messages.context_processors.messages',
-    'background.context_processors.background',
+    'background.context_processors.backgrounds',
 )
 
 INSTALLED_APPS = (
@@ -132,7 +132,7 @@ INSTALLED_APPS = (
 
     #pyuy
     'main',
-    'pycon',
+    'pycon2012',
     'background',
     'common',
     'account',
@@ -140,9 +140,8 @@ INSTALLED_APPS = (
 
 APPEND_SLASH = False
 CMS_TEMPLATES = (
-    ('base.html', 'Base'),
     ('main.html', 'Main'),
-    ('pycon.html', 'PyCon'),
+    ('pycon2012.html', 'PyCon2012'),
 )
 
 LANGUAGES = (
@@ -187,6 +186,7 @@ LOGGING = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 LOGIN_URL = '/account/sign-in'
 LOGOUT_URL = '/account/sign-out'
 LOGIN_REDIRECT_URL = '/account/profile'

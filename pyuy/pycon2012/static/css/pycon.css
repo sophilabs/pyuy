@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v4/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Homemade Apple';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Homemade Apple'), local('HomemadeApple'), url(http://themes.googleusercontent.com/static/fonts/homemadeapple/v3/yg3UMEsefgZ8IHz_ryz86Kmk7U3V72hKgu0Yds_deA8.woff) format('woff');
+}
+
 body {
     font-family: PT Sans;
 }
@@ -186,12 +200,24 @@ li {
     background-color: #b8c6ff;
     color: #5173ff;
 }
-.flexslider .slides img {
-    top: -50%;
-    margin-top: -270px;
-}
+
 .flexslider {
     height: 540px;
     overflow: hidden;
     min-width: 940px;
+    border: none;
+    padding: 0;
+    webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+.flexslider .slides img {
+    top: -50%;
+    margin-top: -270px;
 }

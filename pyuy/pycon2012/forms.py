@@ -19,4 +19,3 @@ class ProposalForm(BootstrapForm):
     additional_notes = forms.CharField(widget=forms.Textarea(), required=False)
     extreme = forms.BooleanField(required=False)
     duration = forms.ChoiceField(choices=Proposal.DURATION_CHOICES)
-    #additional_speakers = forms.ModelChoiceField(Speaker.objects.all().order_by('name'), required=False)

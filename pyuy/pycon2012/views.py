@@ -1,4 +1,3 @@
-# Create your views here.
 import datetime
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -8,10 +7,13 @@ from symposion.speakers.models import Speaker
 from symposion.proposals.models import Proposal
 from django.template import RequestContext
 from symposion.sponsors_pro.models import Sponsor
-from pycon.forms import SpeakerForm, ProposalForm
+from pycon2012.forms import SpeakerForm, ProposalForm
 
 def index(request):
-    return render_to_response('pycon_index.html',{'sponsor_list':Sponsor.objects.order_by('name')}, context_instance=RequestContext(request))
+    return render_to_response('pycon2012_index.html',
+        {
+            'sponsor_list':Sponsor.objects.order_by('name'),
+        }, context_instance=RequestContext(request))
 
 @login_required
 def proposal_add(request):
