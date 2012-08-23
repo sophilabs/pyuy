@@ -42,14 +42,13 @@
                 <div class="span4">
                     {% block logo %}
                     <a class="logo" href="{% url 'pycon2012:index' %}">
-                        <span class="icon"><img src="{% static 'img/pycon-logo.png' %}" /></span>
-                        <span class="text">PyCon 2012</span>
-                        <span class="text-italic">Uruguay</span>
+                        <img src="{% static 'img/pycon-logo.png' %}" />
+                        <span class="text">PyCon 2012 Uruguay</span>
                     </a>
                     {% endblock %}
                 </div>
                 <div class="span8 pull-right">
-                    <ul>
+                    <ul class="menu-list">
                         <li class="menu-normal pull-left">
                             <a href="{% url 'pycon2012:index' %}">{% trans 'About' %}</a>
                         </li>
@@ -88,17 +87,17 @@
         {% block content %}{% endblock %}
     </div>
     <footer>
-        <div class="container">
-            <p class="pull-right"><a href="#">{% trans 'Back to top' %}</a></p>
-            <p class="pull-right"><a href="index">{% trans 'About' %}</a></p>
-            <p class="pull-right"><a href="sign_up">{% trans 'Registration' %}</a></p>
-            <p class="pull-right"><a href="index">{% trans 'Schedule' %}</a></p>
-            <p class="pull-right"><a href="#">{% trans 'Sponsors' %}</a></p>
-            <p class="pull-right"><a href="#">{% trans 'Venue' %}</a></p>
-            {% block footer %}
-            <p class="rights">PyCon Uruguay Copyright © 2012. All rights reserved.</p>
-            {% endblock %}
-        </div>
+        <ul>
+            <li><a href="#">{% trans 'Back to top' %}</a></li>
+            <li><a href="#">{% trans 'Venue' %}</a></li>
+            <li><a href="#">{% trans 'Sponsors' %}</a></li>
+            <li><a href="index">{% trans 'Schedule' %}</a></li>
+            <li><a href="sign_up">{% trans 'Registration' %}</a></li>
+            <li><a href="index">{% trans 'About' %}</a></li>
+        </ul>
+        {% block footer %}
+        <span class="rights">PyCon Uruguay Copyright © 2012. All rights reserved. Built by </span><a class="builder" href="sophilabs.com">Sophilabs</a>
+        {% endblock %}
     </footer>
     {% block js %}
     <script src="{% static 'jquery/js/jquery.js' %}"></script>

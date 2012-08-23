@@ -62,7 +62,7 @@ def proposal_add(request):
             formS = SpeakerForm()
         formP = ProposalForm()
 
-    return render_to_response('proposal_add.html', {
+    return render_to_response('pycon2012_proposal_add.html', {
         'formP':formP, 'formS':formS
         }, context_instance=RequestContext(request))
 

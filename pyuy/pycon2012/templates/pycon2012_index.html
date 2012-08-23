@@ -18,41 +18,45 @@
 </ul>
 {% endif %}
     <div class="row">
-        <div class="span6 pull-left">
+        <div class="span12 pull-left">
             <h1 class="box-title">{% trans 'About' %}<small class="small">{% trans 'What is PyCon Uruguay?' %}</small></h1>
             <p class="box-text">Icing dragée topping brownie jelly. Muffin lollipop pastry. Candy canes lollipop caramels candy canes topping halvah wafer chocolate. Bonbon macaroon pastry. Chupa chups ice cream soufflé dessert sugar plum jelly beans gingerbread gummi bears brownie. Applicake dessert chocolate bar biscuit.</p>
-            <a href="#" class="boton boton-red">{% trans 'Go to Schedule' %}</a>
+            <a href="#" class="button button-yellow">{% trans 'Go to Schedule' %}</a>
         </div>
     </div>
     <div class="row">
         <div class="span6 pull-left">
             <h1 class="box-title">{% trans 'When' %}<small class="small">{% trans 'Wich appointments should I cancel?' %}</small></h1>
-            <div class="box-text box-red">
-                <p class="text-top">Jelly liquorice carrot cake.</p>
-                <p class="text-bottom">Cupcake danish apple pie tootsie roll I love candy sweet tart. Carrot cake I love gingerbread brownie I love jelly I love. </p>
+            <div class="box-text back box-yellow">
+                <p class="text-top">Saturday 10th & Sunday 11th November</p>
+                <p class="text-bottom"><strong>Talks</strong> > Saturday from 9:00 to 21:00</p>
+                <p class="text-bottom"><strong>Sprints</strong> > Sunday from 10:00 to 18:00</p>
             </div>
-            <a href="#" class="boton boton-red pull-right">{% trans 'Schedule it' %}</a>
+            <a href="https://www.google.com/calendar/embed?src=ok672qhbeod7uu11ojj1cbbggg%40group.calendar.google.com&ctz=America/Montevideo" class="button button-yellow over pull-right">{% trans 'Schedule it' %}</a>
         </div>
         <div class="span6 pull-left">
             <h1 class="box-title">{% trans 'Where' %}<small class="small">{% trans 'Take me there!' %}</small></h1>
 
-            <div class="box-text box-blue">
-                <p class="text-top">Jelly liquorice carrot cake.</p>
-                <p class="text-bottom">Cupcake danish apple pie tootsie roll I love candy sweet tart. Carrot cake I love gingerbread brownie I love jelly I love. </p>
+            <div class="box-text back box-blue">
+                <p class="text-top">LATU</p>
+                <p class="text-bottom">Laboratorio Tecnológico del Uruguay</p>
+                <p class="text-bottom">Av. Italia 6201 - Montevideo</p>
             </div>
-            <a href="#" class="boton boton-blue pull-right">{% trans 'Register now' %}</a>
+            <a rel="nofollow" href="https://maps.google.com.uy/maps?q=latu&hl=en&ll=-34.877306,-56.077266&spn=0.009805,0.021136&fb=1&gl=uy&hq=latu&hnear=0x959f80ffc63bf7d3:0x6b321b2e355bec99,Montevideo&cid=0,0,10519268855607095324&t=m&z=16&iwloc=A" class="button button-blue over pull-right">{% trans 'See Map' %}</a>
         </div>
     </div>
     <div class="row">
         <div class="span12 pull-left">
             <h1 class="box-title">{% trans 'Sponsors' %}<small class="small">{% trans 'Which important companies are behind this?' %}</small></h1>
-            <div class="container">
+            <div class="box-sponsors">
                 {% regroup sponsor_list by level as sponsors_ordered %}
                 {% for spon in sponsors_ordered %}
                 {% if forloop.first %}<div class="row">{% endif %}
                 {% for sponsor in spon.list %}
-                <div class="span2">
-                {{ sponsor }}
+                <div class="span3">
+                    <a class="sponsor-logo" href="{{ sponsor.external_url }}" style="background-image:url({{ sponsor.website_logo_url }});">
+                       <span>{{ sponsor }}</span>
+                    </a>
                 </div>
                 {% if forloop.counter|divisibleby:6 %}
                 </div><div class="row">
