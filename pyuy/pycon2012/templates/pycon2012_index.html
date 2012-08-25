@@ -1,12 +1,38 @@
 {% extends 'pycon2012.html' %}
 
 {% load i18n %}
+{% load background_tags  %}
+{% load url from future %}
 
 {% block meta_title %}{% trans 'Home' %} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% trans 'PyCon Home' %}{% endblock %}
 
 {% block css %}
 {{ block.super }}
+{% endblock %}
+
+{% block slider %}
+<div class="flexslider">
+    <ul class="slides">
+        {% backgrounds 'pycon2012' %}
+        {% for background in backgrounds %}
+        <li>
+            <div class="slider-box">
+                <section class="{{ background.box_css_class }}">
+                    <header>
+                        <h1>{{ background.title }}</h1>
+                    </header>
+                    <p>{{ background.description }}</p>
+                </section>
+            </div>
+            <div class="notes">
+                <a rel="nofollow" href="https://maps.google.com/maps?q={{ background.latitude }},{{ background.longitude }}">{{ background.place }}</a>{% if background.author %} {% trans 'by' %} <a href="{{ background.source }}" rel="nofollow">{{ background.author }}</a>{% endif %}
+            </div>
+            <img src="{{ background.image.url }}" />
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -20,13 +46,20 @@
     <div class="row">
         <div class="span12 pull-left">
             <h1 class="box-title">{% trans 'About' %}<small class="small">{% trans 'What is PyCon Uruguay?' %}</small></h1>
-            <p class="box-text">Icing dragée topping brownie jelly. Muffin lollipop pastry. Candy canes lollipop caramels candy canes topping halvah wafer chocolate. Bonbon macaroon pastry. Chupa chups ice cream soufflé dessert sugar plum jelly beans gingerbread gummi bears brownie. Applicake dessert chocolate bar biscuit.</p>
-            <a href="#" class="button button-yellow">{% trans 'Go to Schedule' %}</a>
+            <p class="box-text">
+                PyCon is the annual conference for the community using and developing the open-source Python programming language.
+                PyCon is an event organized by the Uruguayan Python community that mainly seeks to introduce and promote this wonderful language in Uruguay and the region.
+                Our objective is to offer universal access to Python and related tools, that's why we keep the registration at FREE cost, thanks to many voluntary workers and sponsors.
+            </p>
+            <p>
+                We were already conquered by python and are now committed to bring it to the edge. It is time that you also meet it and start building beautiful software together.
+            </p>
+            <a href="{% url 'pycon2012:about' %}" class="link">{% trans '> Read more' %}</a>
         </div>
     </div>
     <div class="row">
         <div class="span6 pull-left">
-            <h1 class="box-title">{% trans 'When' %}<small class="small">{% trans 'Wich appointments should I cancel?' %}</small></h1>
+            <h1 class="box-title">{% trans 'When' %}<small class="small">{% trans 'What appointments should I cancel?' %}</small></h1>
             <div class="box-text back box-yellow">
                 <p class="text-top">Saturday 10th & Sunday 11th November</p>
                 <p class="text-bottom"><strong>Talks</strong> > Saturday from 9:00 to 21:00</p>
@@ -47,7 +80,7 @@
     </div>
     <div class="row">
         <div class="span12 pull-left">
-            <h1 class="box-title">{% trans 'Sponsors' %}<small class="small">{% trans 'Which important companies are behind this?' %}</small></h1>
+            <h1 class="box-title">{% trans 'Sponsors' %}<small class="small">{% trans 'What important companies are behind this?' %}</small></h1>
             <div class="box-sponsors">
                 {% regroup sponsor_list by level as sponsors_ordered %}
                 {% for spon in sponsors_ordered %}

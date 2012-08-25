@@ -15,6 +15,9 @@ def index(request):
         'sponsor_list':Sponsor.objects.order_by('level'),
     }, context_instance=RequestContext(request))
 
+def about(request):
+    return render_to_response('pycon2012_about.html', context_instance=RequestContext(request))
+
 @login_required
 def proposal_add(request):
     if request.method == 'POST': # If the form has been submitted...

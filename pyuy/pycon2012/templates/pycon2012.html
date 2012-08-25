@@ -2,10 +2,10 @@
 <html lang="en">
 {% load cms_tags %}
 {% load sekizai_tags %}
-{% load background_tags  %}
 {% load static from staticfiles %}
 {% load i18n %}
 {% load url from future %}
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,21 +22,12 @@
     <link href="{% static 'css/pycon.css' %}" rel="stylesheet">
     {% endblock %}
     {% render_block "css" %}
-
 </head>
 <body class="{% block class %}{% endblock %}">
     {% cms_toolbar %}
     <header>
-        <div class="flexslider">
-            <ul class="slides">
-                {% backgrounds 'pycon2012' %}
-                {% for background in backgrounds %}
-                <li>
-                    <img src="{{ background.image.url }}" />
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% block slider %}
+        {% endblock %}
         <div class="menu-box">
             <div class="row">
                 <div class="span4">
@@ -50,7 +41,7 @@
                 <div class="span8 pull-right">
                     <ul class="menu-list">
                         <li class="menu-normal pull-left">
-                            <a href="{% url 'pycon2012:index' %}">{% trans 'About' %}</a>
+                            <a href="{% url 'pycon2012:about' %}">{% trans 'About' %}</a>
                         </li>
                         <li class="menu pull-left">
                             <a href="{% url 'account:sign_up' %}">{% trans 'Registration' %}</a>
@@ -96,7 +87,7 @@
             <li><a href="index">{% trans 'About' %}</a></li>
         </ul>
         {% block footer %}
-        <span class="rights">PyCon UY 2012 is a production of the <a href="/">PyUy</a>. Site built and hosted by </span><a class="builder" href="sophilabs.com">Sophilabs</a>
+        <span class="rights">PyCon UY 2012 is a production of the <a href="/">PyUy</a>. Site built and hosted by <a class="builder" href="http://sophilabs.com">Sophilabs</a>.</span>
         {% endblock %}
     </footer>
     {% block js %}

@@ -153,7 +153,7 @@ footer .rights {
     line-height: 35px;
     margin: 0 0 0 10px
 }
-footer .builder:hover {
+footer a:hover {
     color: white;
     text-decoration: none;
 }
@@ -265,6 +265,7 @@ footer .builder:hover {
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08);
     -o-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08);
     border-radius: 3px;
+    min-height: 500px;
 }
 .menu-list {
     margin-top: 20px;
@@ -282,4 +283,89 @@ footer .builder:hover {
 }
 .box-sponsors {
     margin: 40px 0;
+}
+.flexslider .notes {
+    width: 940px;
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    margin-left: -470px;
+    color: white;
+}
+.flexslider .notes a {
+    color: white;
+    padding: 4px 8px;
+}
+.flexslider .notes a:hover {
+    color: #005580;
+    background-color: white;
+    text-decoration: none;
+}
+.slider-box {
+    width: 670px;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -470px;
+    color: white;
+    font-weight: bold;
+    padding: 20px 0 0 300px;
+}
+.slider-box h1 {
+    margin: 10px 0;
+}
+.slider-box p {
+    margin-left: 20px;
+    font-size: 22px;
+    line-height: 34px;
+    font-weight: normal;
+}
+.slider-box section {
+    padding: 10px;
+}
+.slider-box section.std-box {
+    background-color: rgba(78, 137, 196, 0.7);
+}
+.slider-box section h1 {
+    color: #ffbe00;
+}
+.slider-box section.black-box {
+    background-color: rgba(3, 2, 0, 0.7);
+}
+.slider-box section.green-box {
+    background-color: rgba(0, 72, 61, 0.7);
+}
+.slider-box section.lightgreen-box {
+    background-color: rgba(57, 75, 35, 0.7);
+}
+.slider-box section.white-box {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.slider-box section.white-box h1 {
+    color: #333333;
+}
+.slider-box section.white-box p {
+    color: #094BA4;
+}
+.slider-box section.pink-box {
+    background-color: rgba(122, 109, 135, 0.7);
+}
+.slider-box section.darkblue-box {
+    background-color: rgba(17, 23, 37, 0.7);
+}
+.slider-box section.waterblue-box {
+    background-color: rgba(22, 50, 90, 0.7);
+}
+a:hover {
+    text-decoration: none;
+    color: #094BA4;
+}
+.header-back {
+    height: 200px;
+    display: block;
+    background-color: #094BA4;
+    border-bottom: 4px solid #FFBE00;
+}
+.no-slider .container {
+    margin-top: -40px;
 }

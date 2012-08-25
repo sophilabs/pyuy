@@ -1,0 +1,44 @@
+{% extends 'pycon2012.html' %}
+
+{% load i18n %}
+{% load background_tags  %}
+
+{% block meta_title %}{% trans 'About' %} - {{ block.super }}{% endblock %}
+{% block meta_description %}{% trans 'About PyCon 2012 Uruguay' %}{% endblock %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
+{% block slider %}
+<div class="header-back">
+
+</div>
+{% endblock %}
+{% block class %}no-slider about{% endblock %}
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="row">
+        <div class="span12 pull-left">
+            <h1 class="box-title">{% trans 'About' %}<small class="small">{% trans 'What is PyCon Uruguay?' %}</small></h1>
+            <p class="box-text">
+                PyCon is the annual conference for the community using and developing the open-source Python programming language.
+                PyCon is an event organized by the Uruguayan Python community that mainly seeks to introduce and promote this wonderful language in Uruguay and the region.
+                Our objective is to offer universal access to Python and related tools, that's why we keep the registration at FREE cost, thanks to many voluntary workers and sponsors.
+            </p>
+            <p>
+                We were already conquered by python and are now committed to bring it to the edge. It is time that you also meet it and start building beautiful software together.
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+{% endblock %}
