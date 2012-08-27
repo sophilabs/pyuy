@@ -21,7 +21,6 @@ icalendar==3.0.1b2
 psycopg2==2.4.5
 pytz==2012d
 simple-translation==0.8.6
--e git://github.com/sophilabs/symposion.git@8af8a4ab46736bc32f5e8acbbfcda4d8232953a1#egg=symposion-dev
 wsgiref==0.1.2
 django-email-confirmation==0.2
 Pinax==0.9a2

@@ -7,6 +7,8 @@ PROJECT_ROOT = os.path.join(
 def rel(*x):
     return os.path.join(PROJECT_ROOT, *x)
 
+BASE_URL = 'http://local.python.org.uy:8000'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -95,16 +97,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    #symposion
-    'pinax.apps.account',
-    'symposion.conference',
-    'symposion.speakers',
-    'symposion.proposals',
-    'symposion.review',
-    'symposion.sponsors_pro',
-    'symposion.schedule',
-    'emailconfirmation',
-
     #cms
     'cms',
     'mptt',
@@ -131,16 +123,14 @@ INSTALLED_APPS = (
 
     #pyuy
     'main',
-    'pycon2012',
-    'background',
     'common',
     'account',
 )
 
+DEFAULT_BASE_TEMPLATE = "main.html"
 APPEND_SLASH = False
 CMS_TEMPLATES = (
     ('main.html', 'Main'),
-    ('pycon2012.html', 'PyCon2012'),
 )
 
 LANGUAGES = (
