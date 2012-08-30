@@ -75,6 +75,7 @@ WSGI_APPLICATION = 'pyuy.wsgi.application'
 
 TEMPLATE_DIRS = (
     rel('templates'),
+    rel('main/templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -127,7 +128,7 @@ INSTALLED_APPS = (
     'account',
 )
 
-DEFAULT_BASE_TEMPLATE = "main.html"
+
 APPEND_SLASH = False
 CMS_TEMPLATES = (
     ('main.html', 'Main'),
@@ -185,3 +186,5 @@ try:
     from settings_local import *
 except ImportError:
     pass
+
+LOCALE_PATHS = ( rel('conf/locale/'),)

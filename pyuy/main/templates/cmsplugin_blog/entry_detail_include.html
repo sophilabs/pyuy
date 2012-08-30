@@ -1,0 +1,16 @@
+{% load i18n placeholder_tags cmsplugin_blog_tags simple_translation_tags placeholder_tags %}
+
+{% for entry in object_list|annotate_with_translations %}
+{% with entry|get_preferred_translation_from_request:request as title %}
+{% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}
+<h2 class="news-title">{{ title }}</h2>
+{{ entry|render_language_choices:request|safe }}
+</p>
+{% with entry.placeholders|choose_placeholder:"text" as content %}
+{% render_placeholder content %}
+{% endwith %}
+<p class="date">{{ entry.pub_date|date:"d b Y" }}</p>
+{% render_placeholder excerpt %}
+{% endwith %}
+{% endwith %}
+{% endfor %}

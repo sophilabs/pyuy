@@ -1,11 +1,16 @@
 {% extends "main.html" %}
 
-{% load cms_tags %}
+{% load cms_tags i18n %}
 
-{% block menu %}
-{% show_placeholder "menu" "main" %}
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
 {% endblock %}
 
 {% block content %}
-{% block left-col %}{% endblock %}
+{% if object_list %}
+{% include "cmsplugin_blog/entry_detail_include.html" %}
+{% else %}
+<p>{% trans "No news added" %}</p>
+{% endif %}asdfas
 {% endblock %}
