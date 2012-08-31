@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
+{% load cms_tags %}
 {% load i18n %}
 {% load url from future %}
 {% load static from staticfiles %}
 
 {% block meta_title %}{% trans "Sign Up" %} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% trans "Sign Up" %}{% endblock %}
+
+{% block menu %}
+{% show_placeholder "menu" "index" %}
+{% endblock %}
 
 {% block content %}
 {{ block.super }}

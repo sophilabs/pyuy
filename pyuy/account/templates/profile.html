@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
+{% load cms_tags %}
 {% load i18n %}
 {% load url from future %}
 
 {% block meta_title %}{% trans "Profile" %} - {{ block.super }}{% endblock %}
 {% block meta_description %}{% trans "Profile" %}{% endblock %}
 
+{% block menu %}
+{% show_placeholder "menu" "index" %}
+{% endblock %}
 
 {% block content %}
 <div class="page-header">
