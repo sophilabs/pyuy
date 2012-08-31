@@ -3,7 +3,7 @@
 {% for entry in object_list|annotate_with_translations %}
 {% with entry|get_preferred_translation_from_request:request as title %}
 {% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}
-<h2 class="news-title">{{ title }}</h2>
+<h2 class="news-title"><a href="{{ title.get_absolute_url }}">{{ title }}</a></h2>
 {{ entry|render_language_choices:request|safe }}
 </p>
 {% with entry.placeholders|choose_placeholder:"text" as content %}

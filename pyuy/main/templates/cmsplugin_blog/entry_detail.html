@@ -10,7 +10,7 @@
 
 <p class="date"><span>{{ object.pub_date|date:"d F Y" }}</span></p>
 
-{% with object.placeholders|choose_placeholder:"content" as content %}
+{% with object.placeholders|choose_placeholder:"text" as content %}
     {% render_placeholder content %}
 {% endwith %}
 

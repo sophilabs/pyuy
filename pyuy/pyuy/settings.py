@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     #'cms.plugins.video',
     #'cms.plugins.twitter',
     'djangocms_utils',
-    'missing',
+    #'missing'
 
     #others
     'bootstrap',
@@ -131,7 +131,7 @@ INSTALLED_APPS = (
 
 APPEND_SLASH = False
 CMS_TEMPLATES = (
-    ('main.html', 'Main'),
+    ('base.html', 'Base'),
 )
 
 LANGUAGES = (
