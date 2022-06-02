@@ -16,7 +16,7 @@ django-sekizai==0.6.1
 django-staticfiles==1.2.1
 django-tagging==0.3.1
 djangocms-utils==0.9.5
-html5lib==0.95
+html5lib==0.99999999
 icalendar==3.0.1b2
 psycopg2==2.4.5
 pytz==2012d
